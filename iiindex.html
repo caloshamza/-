@@ -1,0 +1,1049 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>hamza-UM5</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="منصة تعليمية لمادة المدخل لدراسة الشريعة الإسلامية: المقرر، المصادر، الأدوار، المذاهب، الاختبارات والمكتبة.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="font-link" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;600;700&family=Tajawal:wght@400;500;700;800&family=Amiri:wght@400;700&display=swap">
+<style>
+/* Layout: sticky header → deep-green hero band with geometric star field → alternating paper/surface sections → footer. Control panel = drawer from the left. */
+:root{
+  --paper:#F5F7F4; --surface:#FFFFFF; --ink:#14261F; --muted:#56675F; --line:#D9E2DC;
+  --green:#0F5442; --green-ink:#0F5442; --tint:#E7F0EB;
+  --gold:#A87B2C; --gold-soft:#F3EAD4;
+  --band:#0C3A2F; --band-2:#0F4A3B; --on-band:#F4F1E6; --on-band-muted:#BFD3C9;
+  --ok:#1F7A4D; --bad:#B3402E;
+  --f-display:"Reem Kufi","Tajawal",system-ui,sans-serif;
+  --f-body:"Tajawal","Segoe UI",Tahoma,system-ui,sans-serif;
+  --f-quote:"Amiri","Traditional Arabic","Times New Roman",serif;
+  --fs:1;
+  --r:14px; --shadow:0 1px 2px rgba(12,40,30,.06),0 8px 24px -12px rgba(12,40,30,.18);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0B1613; --surface:#11201B; --ink:#E6EEE9; --muted:#9BB0A6; --line:#22372F;
+  --green:#4DB590; --green-ink:#7FD1B2; --tint:#163029;
+  --gold:#D8B063; --gold-soft:#2B2617;
+  --band:#08231C; --band-2:#0C2F26; --on-band:#F1EEE3; --on-band-muted:#A8C2B6;
+  --ok:#5CC28C; --bad:#E57A64; --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px -14px rgba(0,0,0,.6);
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0B1613; --surface:#11201B; --ink:#E6EEE9; --muted:#9BB0A6; --line:#22372F;
+  --green:#4DB590; --green-ink:#7FD1B2; --tint:#163029;
+  --gold:#D8B063; --gold-soft:#2B2617;
+  --band:#08231C; --band-2:#0C2F26; --on-band:#F1EEE3; --on-band-muted:#A8C2B6;
+  --ok:#5CC28C; --bad:#E57A64; --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px -14px rgba(0,0,0,.6);
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:calc(17px * var(--fs));line-height:1.85;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--band)}
+a{color:var(--green-ink)}
+h1,h2,h3,h4{font-family:var(--f-display);line-height:1.35;text-wrap:balance;margin:0;font-weight:600}
+p{margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1180px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.num{font-variant-numeric:tabular-nums}
+
+/* Header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--band) 94%,transparent);backdrop-filter:blur(8px);color:var(--on-band);border-bottom:1px solid rgba(216,176,99,.25)}
+.top .wrap{display:flex;align-items:center;gap:16px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;flex-shrink:0}
+.brand svg{width:34px;height:34px;color:var(--gold)}
+.brand b{font-family:var(--f-display);font-size:1.25rem;font-weight:700;letter-spacing:.01em}
+.brand small{display:block;font-size:.72rem;color:var(--on-band-muted);line-height:1.2}
+.nav{display:flex;gap:2px;margin-inline-start:auto;flex-wrap:wrap}
+.nav a{color:var(--on-band-muted);text-decoration:none;padding:6px 10px;border-radius:8px;font-size:.92rem;font-weight:500;white-space:nowrap}
+.nav a:hover,.nav a.on{color:var(--on-band);background:rgba(255,255,255,.08)}
+.tools{display:flex;gap:6px;align-items:center}
+.ibtn{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:transparent;color:var(--on-band);cursor:pointer}
+.ibtn:hover{background:rgba(255,255,255,.08)}
+.ibtn svg{width:20px;height:20px}
+.cp-btn{white-space:nowrap;display:inline-flex;align-items:center;gap:8px;height:40px;padding-inline:14px;border-radius:10px;border:1px solid var(--gold);background:transparent;color:var(--gold);cursor:pointer;font-weight:700;font-size:.9rem}
+.cp-btn:hover{background:var(--gold);color:var(--band)}
+.cp-btn svg{width:18px;height:18px}
+.burger{display:none}
+@media (max-width:1240px){
+  .nav{position:fixed;inset:calc(64px + env(safe-area-inset-top,0px)) 0 auto 0;flex-direction:column;background:var(--band);padding:10px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px));border-bottom:1px solid rgba(216,176,99,.3);display:none;max-height:70vh;overflow:auto}
+  .nav.open{display:flex}
+  .nav a{padding:10px 12px;font-size:1rem}
+  .burger{display:inline-grid}
+  .tools{margin-inline-start:auto}
+  .cp-btn span{display:none}
+  .cp-btn{padding-inline:10px}
+}
+
+/* Hero */
+.hero{background:var(--band);color:var(--on-band);position:relative;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.13;background-image:var(--star-tile);background-size:84px 84px}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:4px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.hero .wrap.g{display:grid;grid-template-columns:1.25fr .9fr;gap:48px;align-items:center;padding-block:64px 72px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.82rem;font-weight:700;letter-spacing:.04em;color:var(--gold)}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.hero h1{font-size:clamp(2rem,4.6vw,3.5rem);font-weight:700;margin-block:14px 18px;color:var(--on-band)}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero .lead{font-size:1.12em;color:var(--on-band-muted);max-width:58ch}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:12px;font-weight:700;text-decoration:none;border:1px solid transparent;cursor:pointer;font-size:.98rem}
+.btn-gold{background:var(--gold);color:#1a1405}
+.btn-gold:hover{filter:brightness(1.06)}
+.btn-ghost{border-color:rgba(255,255,255,.28);color:var(--on-band);background:transparent}
+.btn-ghost:hover{background:rgba(255,255,255,.07)}
+.verse{position:relative;background:var(--band-2);border:1px solid rgba(216,176,99,.35);border-radius:20px;padding:34px 28px 26px;text-align:center}
+.verse .orn{position:absolute;inset-block-start:-18px;inset-inline:0;margin:auto;width:36px;height:36px;color:var(--gold);background:var(--band);border-radius:50%;padding:4px}
+.verse q{display:block;font-family:var(--f-quote);font-size:clamp(1.45rem,2.6vw,1.9rem);line-height:2;color:var(--on-band);quotes:none}
+.verse cite{display:block;margin-top:10px;font-style:normal;color:var(--gold);font-size:.9rem}
+.verse p{margin-top:16px;padding-top:16px;border-top:1px dashed rgba(216,176,99,.35);color:var(--on-band-muted);font-size:.95rem}
+.glance{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.1)}
+.glance div{padding:18px 12px;text-align:center;border-inline-start:1px solid rgba(255,255,255,.1)}
+.glance div:first-child{border-inline-start:0}
+.glance b{display:block;font-family:var(--f-display);font-size:2rem;color:var(--gold);line-height:1.2}
+.glance span{font-size:.88rem;color:var(--on-band-muted)}
+@media (max-width:860px){.hero .wrap.g{grid-template-columns:1fr;gap:40px;padding-block:44px 52px}.glance{grid-template-columns:repeat(2,1fr)}.glance div:nth-child(3){border-inline-start:0}.glance div:nth-child(n+3){border-top:1px solid rgba(255,255,255,.1)}}
+
+/* Sections */
+section.sec{padding-block:76px}
+section.sec.alt{background:var(--surface);border-block:1px solid var(--line)}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+.sec-head .k{font-size:.8rem;font-weight:800;letter-spacing:.06em;color:var(--gold)}
+.sec-head h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-top:6px}
+.sec-head p{color:var(--muted);max-width:62ch;margin-top:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:700;background:var(--tint);color:var(--green-ink)}
+.chip.gold{background:var(--gold-soft);color:var(--gold)}
+
+/* Reasons */
+.reasons{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface)}
+.reason{padding:26px 24px;border-inline-start:1px solid var(--line);border-top:1px solid var(--line);margin:-1px 0 0 -1px}
+.reason .ic{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:var(--tint);color:var(--green-ink);margin-bottom:14px}
+.reason .ic svg{width:22px;height:22px}
+@media (max-width:1000px){.reasons{grid-template-columns:repeat(6,minmax(0,1fr))}.reason{grid-column:span 2}.reason:nth-child(n+4){grid-column:span 3}}
+@media (max-width:620px){.reasons{grid-template-columns:1fr}.reason,.reason:nth-child(n+4){grid-column:auto}}
+.reason h3{font-size:1.1rem;margin-bottom:6px}
+.reason p{color:var(--muted);font-size:.96em}
+
+/* Syllabus */
+.syl{display:grid;grid-template-columns:280px 1fr;gap:28px;align-items:start}
+.syl-side{position:sticky;top:96px;display:grid;gap:14px}
+.progress{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.progress .bar{height:8px;border-radius:99px;background:var(--line);overflow:hidden;margin-block:10px 6px}
+.progress .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--green),var(--gold));border-radius:inherit;transition:width .4s}
+.progress small{color:var(--muted)}
+.ch-tabs{display:grid;gap:6px}
+.ch-tab{display:flex;gap:12px;align-items:center;text-align:start;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--paper);cursor:pointer}
+.ch-tab .n{flex-shrink:0;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;font-family:var(--f-display);font-weight:700;background:var(--tint);color:var(--green-ink)}
+.ch-tab b{display:block;font-size:.95rem;line-height:1.4}
+.ch-tab small{color:var(--muted);font-size:.8rem}
+.ch-tab[aria-selected="true"]{border-color:var(--green);background:var(--surface);box-shadow:var(--shadow)}
+.ch-tab[aria-selected="true"] .n{background:var(--green);color:var(--surface)}
+.ch-body{min-width:0}
+.ch-intro{padding:26px 28px;border-radius:var(--r);background:var(--paper);border:1px solid var(--line);margin-bottom:16px}
+.ch-intro h3{font-size:1.45rem;margin-block:6px 8px}
+.ch-intro p{color:var(--muted)}
+.lesson{border:1px solid var(--line);border-radius:12px;background:var(--surface);margin-bottom:10px;overflow:hidden}
+.lesson summary{list-style:none;display:flex;gap:12px;align-items:center;padding:14px 18px;cursor:pointer;font-weight:700}
+.lesson summary::-webkit-details-marker{display:none}
+.lesson summary .t{flex:1;min-width:0}
+.lesson summary .caret{width:18px;height:18px;flex-shrink:0;transition:transform .2s;color:var(--muted)}
+.lesson[open] summary .caret{transform:rotate(-90deg)}
+.lesson .lb{padding:0 18px 18px 18px;color:var(--ink);border-top:1px dashed var(--line);padding-top:14px}
+.lesson .lb p+p{margin-top:8px}
+.done-box{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:500;color:var(--muted);cursor:pointer;flex-shrink:0}
+.done-box input{accent-color:var(--green);width:17px;height:17px}
+.lesson.is-done summary .t{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--gold)}
+@media (max-width:900px){.syl{grid-template-columns:1fr}.syl-side{position:static}.ch-tabs{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:460px){.ch-tabs{grid-template-columns:1fr}}
+
+/* Traits */
+.traits{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.trait{padding:24px;border-radius:var(--r);background:var(--surface);border:1px solid var(--line);position:relative}
+.trait .idx{font-family:var(--f-display);font-size:.85rem;color:var(--gold);font-weight:700}
+.trait h3{font-size:1.15rem;margin-block:4px 8px}
+.trait p{color:var(--muted);font-size:.95em}
+.trait .ev{margin-top:12px;font-family:var(--f-quote);font-size:1.05rem;color:var(--green-ink);line-height:1.8}
+
+/* Maqasid */
+.maq{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:32px;align-items:center}
+.tiers{display:grid;gap:10px;justify-items:center}
+.tier{width:100%;border:0;cursor:pointer;padding:18px 20px;border-radius:12px;color:var(--on-band);text-align:center;font-family:var(--f-display);font-size:1.15rem;font-weight:600;transition:transform .2s, box-shadow .2s}
+.tier small{display:block;font-family:var(--f-body);font-size:.82rem;font-weight:500;opacity:.85}
+.tier:nth-child(1){width:58%;background:color-mix(in srgb,var(--gold) 70%,var(--band))}
+.tier:nth-child(2){width:79%;background:color-mix(in srgb,var(--green) 70%,var(--band))}
+.tier:nth-child(3){width:100%;background:var(--band)}
+.tier[aria-pressed="true"]{box-shadow:0 0 0 3px var(--paper),0 0 0 5px var(--gold);transform:scale(1.02)}
+.maq-detail{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:28px;min-height:280px;min-width:0}
+.maq-detail h3{font-size:1.4rem;margin-block:6px 8px}
+.maq-detail>p{color:var(--muted)}
+.kul{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:18px}
+.kul div{padding:12px 14px;border-radius:10px;background:var(--paper);border:1px solid var(--line)}
+.kul b{display:block;font-family:var(--f-display);color:var(--green-ink)}
+.kul span{font-size:.86rem;color:var(--muted);line-height:1.6;display:block}
+@media (max-width:860px){.maq{grid-template-columns:1fr}}
+
+/* Sources */
+.src-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:28px;align-items:start}
+.seg{display:inline-flex;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:4px;gap:4px;margin-bottom:16px;flex-wrap:wrap}
+.seg button{border:0;background:transparent;padding:8px 14px;border-radius:9px;cursor:pointer;font-weight:700;font-size:.9rem;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--green-ink);box-shadow:var(--shadow)}
+.src-list{display:grid;gap:8px}
+.src-item{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:12px;border:1px solid var(--line);background:var(--surface);cursor:pointer;text-align:start;width:100%}
+.src-item .n{width:30px;height:30px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;font-size:.85rem;font-weight:800;background:var(--tint);color:var(--green-ink)}
+.src-item b{flex:1;font-size:1rem}
+.src-item[aria-pressed="true"]{border-color:var(--gold);background:var(--gold-soft)}
+.src-item[aria-pressed="true"] .n{background:var(--gold);color:#1a1405}
+.src-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:30px;box-shadow:var(--shadow);min-width:0}
+.src-card h3{font-size:1.7rem;margin-block:8px 12px}
+.src-card dl{display:grid;gap:16px;margin:18px 0 0}
+.src-card dt{font-weight:800;font-size:.85rem;color:var(--gold);letter-spacing:.03em}
+.src-card dd{margin:4px 0 0}
+.src-card ul{margin:6px 0 0;padding-inline-start:20px}
+.order{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:22px;padding:16px;border-radius:12px;background:var(--paper);border:1px dashed var(--line)}
+.order span{padding:6px 12px;border-radius:8px;background:var(--surface);border:1px solid var(--line);font-weight:700;font-size:.9rem}
+.order i{color:var(--gold);font-style:normal}
+.order small{width:100%;color:var(--muted);font-size:.84rem}
+@media (max-width:860px){.src-grid{grid-template-columns:1fr}}
+
+/* Timeline */
+.tl{position:relative;display:grid;gap:18px}
+.tl::before{content:"";position:absolute;inset-block:8px;inset-inline-start:21px;width:2px;background:linear-gradient(var(--green),var(--gold))}
+.era{display:grid;grid-template-columns:44px 1fr;gap:18px;align-items:start}
+.era .dot{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--surface);border:2px solid var(--green);font-family:var(--f-display);font-weight:700;color:var(--green-ink);position:relative;z-index:1}
+.era-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;min-width:0}
+.era-card header{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.era-card h3{font-size:1.2rem}
+.era-card p{color:var(--muted);margin-top:8px}
+.era-card ul{margin:10px 0 0;padding-inline-start:20px}
+.era-card li{margin-top:4px}
+.era-card li::marker{color:var(--gold)}
+.century{margin-bottom:28px;overflow-x:auto}
+.century-bar{display:flex;min-width:640px;height:38px;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.century-bar div{display:grid;place-items:center;font-size:.78rem;font-weight:700;color:var(--on-band);white-space:nowrap;overflow:hidden;padding-inline:4px}
+.century-axis{display:flex;justify-content:space-between;min-width:640px;font-size:.74rem;color:var(--muted);margin-top:6px}
+
+/* Madhahib */
+.mad{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.imam{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.imam .cap{background:var(--band);color:var(--on-band);padding:20px 22px;position:relative;overflow:hidden}
+.imam .cap::after{content:"";position:absolute;inset:0;opacity:.12;background-image:var(--star-tile);background-size:60px 60px}
+.imam .cap h3{font-size:1.4rem;color:var(--gold)}
+.imam .cap span{font-size:.9rem;color:var(--on-band-muted)}
+.imam .bd{padding:18px 22px;display:grid;gap:10px;flex:1}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:.92rem}
+.facts dt{color:var(--muted)}
+.facts dd{margin:0;font-weight:700}
+.imam p{font-size:.93rem;color:var(--muted)}
+.matrix-wrap{margin-top:28px;overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+table.matrix{border-collapse:collapse;width:100%;min-width:720px;font-size:.92rem}
+.matrix th,.matrix td{padding:12px 10px;border-bottom:1px solid var(--line);text-align:center}
+.matrix th:first-child,.matrix td:first-child{text-align:start;font-weight:700;position:sticky;inset-inline-start:0;background:var(--surface)}
+.matrix thead th{font-family:var(--f-display);font-weight:600;color:var(--green-ink);background:var(--paper)}
+.matrix thead th:first-child{background:var(--paper)}
+.yes{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--tint);color:var(--green-ink);font-weight:800}
+.no{color:var(--line)}
+.note{font-size:.84rem;color:var(--muted);margin-top:10px}
+
+/* Glossary */
+.gl-tools{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.search{flex:1;min-width:220px;display:flex;align-items:center;gap:8px;padding:0 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface)}
+.search svg{width:18px;height:18px;color:var(--muted);flex-shrink:0}
+.search input{border:0;background:transparent;padding:12px 0;width:100%;outline:none}
+.gl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.term{padding:18px 20px;border-radius:12px;background:var(--surface);border:1px solid var(--line)}
+.term b{font-family:var(--f-display);font-size:1.12rem;color:var(--green-ink);font-weight:600}
+.term p{color:var(--muted);font-size:.94em;margin-top:4px}
+.empty{padding:30px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}
+
+/* Quiz */
+.quiz{max-width:760px;margin-inline:auto;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:32px;box-shadow:var(--shadow)}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.qbar{height:6px;border-radius:99px;background:var(--line);overflow:hidden;margin-bottom:22px}
+.qbar i{display:block;height:100%;background:var(--gold);transition:width .3s}
+.quiz h3{font-size:1.3rem;margin-bottom:18px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:12px;align-items:center;text-align:start;width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:var(--paper);cursor:pointer;font-size:1rem}
+.opt:hover:not(:disabled){border-color:var(--green)}
+.opt .l{width:28px;height:28px;flex-shrink:0;display:grid;place-items:center;border-radius:8px;background:var(--surface);border:1px solid var(--line);font-weight:800;font-size:.85rem}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,var(--surface))}
+.opt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,var(--surface))}
+.opt:disabled{cursor:default}
+.explain{margin-top:16px;padding:14px 16px;border-radius:12px;background:var(--gold-soft);font-size:.95rem}
+.qfoot{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}
+.btn-main{background:var(--green);color:var(--surface)}
+.btn-line{border-color:var(--line);background:transparent;color:var(--ink)}
+.score{text-align:center;padding-block:10px}
+.score b{display:block;font-family:var(--f-display);font-size:3.4rem;color:var(--gold);line-height:1.3}
+
+/* Library */
+.lib{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.book{display:grid;grid-template-columns:74px 1fr;gap:16px;padding:20px;border-radius:var(--r);background:var(--surface);border:1px solid var(--line);align-items:start}
+.spine{height:100px;border-radius:4px 10px 10px 4px;background:var(--band);position:relative;overflow:hidden;box-shadow:inset 6px 0 0 rgba(0,0,0,.22)}
+.spine::after{content:"";position:absolute;inset:0;opacity:.22;background-image:var(--star-tile);background-size:34px 34px}
+.spine span{position:absolute;inset-inline:6px;bottom:10px;height:2px;background:var(--gold)}
+.book:nth-child(3n+2) .spine{background:color-mix(in srgb,var(--gold) 55%,var(--band))}
+.book:nth-child(3n) .spine{background:color-mix(in srgb,var(--green) 60%,var(--band))}
+.book h3{font-size:1.06rem;line-height:1.5}
+.book .by{color:var(--green-ink);font-weight:700;font-size:.9rem}
+.book p{color:var(--muted);font-size:.9rem;margin-top:6px}
+.book .meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;align-items:center}
+.book a.open{font-size:.85rem;font-weight:700}
+.lib-filter{margin-bottom:18px}
+.authors{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:40px}
+.author{display:flex;gap:14px;padding:20px;border-radius:var(--r);border:1px solid var(--line);background:var(--paper)}
+.author .av{width:52px;height:52px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;background:var(--band);color:var(--gold);font-family:var(--f-display);font-size:1.3rem;font-weight:700}
+.author h4{font-size:1.06rem}
+.author small{color:var(--gold);font-weight:700}
+.author p{color:var(--muted);font-size:.9rem;margin-top:4px}
+.sub-h{font-size:1.3rem;margin-top:44px}
+
+/* Footer */
+footer{background:var(--band);color:var(--on-band-muted);padding-block:40px;font-size:.92rem}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer b{color:var(--on-band);font-family:var(--f-display)}
+
+/* Control panel */
+.ov{position:fixed;inset:0;background:rgba(5,20,15,.5);z-index:80;opacity:0;pointer-events:none;transition:opacity .2s}
+.ov.show{opacity:1;pointer-events:auto}
+.cp{position:fixed;inset-block:0;left:0;width:min(560px,100%);z-index:90;background:var(--surface);color:var(--ink);box-shadow:0 0 60px rgba(0,0,0,.35);transform:translateX(-102%);transition:transform .28s ease;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);padding-left:env(safe-area-inset-left,0px)}
+.cp.show{transform:none}
+.cp-h{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line);background:var(--band);color:var(--on-band)}
+.cp-h h2{font-size:1.2rem;flex:1}
+.cp-h .ibtn{border-color:rgba(255,255,255,.2)}
+.cp-tabs{display:flex;gap:4px;padding:10px 14px;border-bottom:1px solid var(--line);overflow-x:auto;flex-shrink:0}
+.cp-tabs button{border:0;background:transparent;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:700;font-size:.88rem;color:var(--muted);white-space:nowrap}
+.cp-tabs button[aria-selected="true"]{background:var(--tint);color:var(--green-ink)}
+.cp-b{flex:1;overflow-y:auto;padding:20px}
+.cp-f{display:flex;gap:8px;padding:14px 20px;border-top:1px solid var(--line);background:var(--paper);flex-wrap:wrap}
+.fld{display:grid;gap:6px;margin-bottom:14px}
+.fld label{font-size:.85rem;font-weight:700;color:var(--muted)}
+.fld input[type=text],.fld input[type=password],.fld input[type=number],.fld input[type=url],.fld select,.fld textarea{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--paper)}
+.fld textarea{min-height:90px;resize:vertical;line-height:1.7}
+.fld .hint{font-size:.78rem;color:var(--muted)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.color-row{display:flex;align-items:center;gap:10px}
+.color-row input[type=color]{width:46px;height:38px;border:1px solid var(--line);border-radius:8px;background:var(--paper);padding:2px;cursor:pointer}
+.sw{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:var(--paper)}
+.sw .mv{display:flex;gap:4px}
+.mini{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:4px 10px;cursor:pointer;font-size:.82rem;font-weight:700}
+.mini.danger{color:var(--bad);border-color:color-mix(in srgb,var(--bad) 40%,var(--line))}
+.mini.arm{background:var(--bad);color:#fff}
+.item{border:1px solid var(--line);border-radius:12px;margin-bottom:10px;background:var(--paper)}
+.item>summary{display:flex;align-items:center;gap:8px;padding:10px 14px;cursor:pointer;font-weight:700;list-style:none}
+.item>summary::-webkit-details-marker{display:none}
+.item>summary .t{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.item .ib{padding:4px 14px 14px}
+.lock{max-width:340px;margin:40px auto;text-align:center}
+.lock svg{width:46px;height:46px;color:var(--gold)}
+.lock h3{margin-block:10px 6px}
+.lock p{color:var(--muted);font-size:.9rem;margin-bottom:16px}
+.err{color:var(--bad);font-size:.86rem;min-height:1.4em}
+.helpbox{padding:14px 16px;border-radius:12px;background:var(--gold-soft);font-size:.88rem;margin-bottom:16px}
+.toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--paper);padding:10px 20px;border-radius:10px;font-weight:700;z-index:100;opacity:0;pointer-events:none;transition:.25s}
+.toast.show{opacity:1;transform:translateX(-50%)}
+</style>
+</head><body>
+
+<div id="app" dir="rtl" lang="ar">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="star" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="22" height="22"/><rect x="9" y="9" width="22" height="22" transform="rotate(45 20 20)"/><circle cx="20" cy="20" r="4.5"/></g></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></g></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4" stroke-linecap="round"/></g></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></g></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 21V5M8 7h7"/></symbol>
+    <symbol id="i-scale" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3v18M6 21h12M5 7h14M5 7l-3 7a3.5 3.5 0 0 0 6 0zM19 7l-3 7a3.5 3.5 0 0 0 6 0z"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M5 21V4h11l-2 4 2 4H5"/></symbol>
+    <symbol id="i-hist" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+    <symbol id="i-brief" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></g></symbol>
+    <symbol id="i-caret" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M15 6l-6 6 6 6"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#home" aria-label="الصفحة الرئيسية">
+      <svg><use href="#star"/></svg>
+      <span><b id="brand-name">hamza-UM5</b><small id="brand-sub">مدخل لدراسة الشريعة الإسلامية</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="أقسام الموقع"></nav>
+    <div class="tools">
+      <button class="ibtn" id="theme-btn" type="button" aria-label="تبديل الوضع الليلي"><svg><use href="#i-moon"/></svg></button>
+      <button class="cp-btn" id="cp-open" type="button" aria-label="لوحة التحكم"><svg><use href="#i-gear"/></svg><span>لوحة التحكم</span></button>
+      <button class="ibtn burger" id="burger" type="button" aria-label="القائمة" aria-expanded="false"><svg><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main"></main>
+
+<footer>
+  <div class="wrap">
+    <div><b id="foot-name">hamza-UM5</b><div id="foot-text"></div></div>
+    <div id="foot-right" class="num"></div>
+  </div>
+</footer>
+
+<div class="ov" id="ov"></div>
+<aside class="cp" id="cp" aria-label="لوحة التحكم" aria-hidden="true">
+  <div class="cp-h">
+    <svg width="26" height="26" style="color:var(--gold)"><use href="#star"/></svg>
+    <h2>لوحة التحكم</h2>
+    <button class="ibtn" id="cp-lockbtn" type="button" aria-label="قفل اللوحة" hidden><svg><use href="#i-lock"/></svg></button>
+    <button class="ibtn" id="cp-close" type="button" aria-label="إغلاق"><svg><use href="#i-x"/></svg></button>
+  </div>
+  <div class="cp-tabs" id="cp-tabs" role="tablist" hidden></div>
+  <div class="cp-b" id="cp-b"></div>
+  <div class="cp-f" id="cp-f" hidden>
+    <button class="btn btn-main" id="cp-save" type="button">حفظ ونشر التغييرات</button>
+    <button class="btn btn-line" id="cp-revert" type="button">تراجع عن غير المحفوظ</button>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+
+<script>
+/* =========================================================
+   بيانات الموقع الافتراضية — يمكن تعديلها من «لوحة التحكم»
+   أو مباشرة هنا. لاعتماد تعديلاتك نهائيا: صدّر JSON من اللوحة
+   والصقه مكان هذا الكائن.
+   ========================================================= */
+window.DEFAULT_DATA = {
+  "site": {
+    "brand": "hamza-UM5",
+    "tagline": "مدخل لدراسة الشريعة الإسلامية",
+    "eyebrow": "مسلك القانون باللغة العربية · السداسي الأول",
+    "heroTitle": "مدخل لدراسة <em>الشريعة الإسلامية</em>",
+    "heroLead": "منصة تعليمية تجمع لك المقرر في مكان واحد: مفهوم الشريعة وخصائصها ومقاصدها، ومصادر التشريع، وأدوار الفقه عبر التاريخ، والمذاهب الأربعة، مع ملخصات واختبارات ومكتبة مراجع.",
+    "verse": "ثُمَّ جَعَلْنَاكَ عَلَىٰ شَرِيعَةٍ مِّنَ الْأَمْرِ فَاتَّبِعْهَا",
+    "verseRef": "سورة الجاثية، الآية 18",
+    "verseNote": "الشريعة في اللغة مورد الماء الذي لا ينقطع، والطريق المستقيم الموصل إلى المقصود.",
+    "teacher": "",
+    "year": "الموسم الجامعي 2026 – 2027",
+    "footer": "مادة المدخل لدراسة الشريعة الإسلامية — محتوى تعليمي للطلبة.",
+    "contact": ""
+  },
+  "theme": {
+    "band": "#0C3A2F",
+    "gold": "#A87B2C",
+    "green": "#0F5442",
+    "bodyFont": "Tajawal",
+    "scale": "1",
+    "defaultTheme": "system"
+  },
+  "sections": [
+    {"id": "why", "label": "لماذا المادة", "visible": true},
+    {"id": "syllabus", "label": "المقرر", "visible": true},
+    {"id": "traits", "label": "الخصائص", "visible": true},
+    {"id": "maqasid", "label": "المقاصد", "visible": true},
+    {"id": "sources", "label": "المصادر", "visible": true},
+    {"id": "timeline", "label": "أدوار التشريع", "visible": true},
+    {"id": "madhahib", "label": "المذاهب", "visible": true},
+    {"id": "glossary", "label": "المصطلحات", "visible": true},
+    {"id": "quiz", "label": "اختبر نفسك", "visible": true},
+    {"id": "library", "label": "المكتبة", "visible": true}
+  ],
+  "reasons": [
+    {"icon": "flag", "title": "الهوية والانتماء", "body": "الشريعة الإسلامية جزء أصيل من هوية المجتمع المغربي، وفهمها شرط لفهم منظومته القيمية والقانونية."},
+    {"icon": "scale", "title": "المرجعية الدستورية", "body": "ينص الدستور على أن المملكة دولة إسلامية وأن الدين الإسلامي يتبوأ الصدارة في الهوية الوطنية، فلا يصح تشريع يخالف أحكامه."},
+    {"icon": "hist", "title": "ثلاثة عشر قرنا من التطبيق", "body": "خضع المغرب لأحكام الشريعة كليا نحو ثلاثة عشر قرنا قبل الاستعمار، فهي جزء من تاريخنا القانوني العريق."},
+    {"icon": "book", "title": "قوانين مستمدة منها", "body": "مدونة الأسرة، ومدونة الأوقاف، ومدونة الحقوق العينية، وقانون الالتزامات والعقود… نصوص تستمد من الشريعة كليا أو جزئيا."},
+    {"icon": "brief", "title": "مهن تتطلبها", "body": "القضاء والعدالة والتوثيق والمحاماة والاستشارة القانونية مهن يلجها خريجو كليات الحقوق وتتطلب إلماما بالأحكام الشرعية."}
+  ],
+  "chapters": [
+    {
+      "title": "مفهوم الشريعة وخصائصها ومقاصدها",
+      "summary": "نحدد في هذا الفصل معنى الشريعة لغة واصطلاحا، ونميزها عما يشبهها من مفاهيم، ثم نقف على خصائصها الكبرى والمقاصد التي جاءت لتحقيقها.",
+      "lessons": [
+        {"t": "التعريف اللغوي للشريعة", "b": "الشريعة في اللغة مورد الماء الجاري الذي يُقصد للشرب والسقي، ولا تسمي العرب شريعة إلا ما كان ماؤه لا ينقطع وكان ظاهرا معينا. وتطلق أيضا على الطريق الممهد المستقيم الموصل إلى المقصود، ومنه قوله تعالى: «ثم جعلناك على شريعة من الأمر فاتبعها»."},
+        {"t": "التعريف الاصطلاحي", "b": "الشريعة الإسلامية اصطلاحا هي الأحكام التي شرعها الله لعباده على لسان نبيه محمد ﷺ، الواردة في القرآن الكريم والسنة النبوية. وقد اكتملت قبل وفاة الرسول ﷺ بقليل: «اليوم أكملت لكم دينكم وأتممت عليكم نعمتي ورضيت لكم الإسلام دينا»."},
+        {"t": "الشريعة والدين والملة والفقه", "b": "الشريعة والدين والملة بمعنى واحد باعتبارات مختلفة: تسمى شريعة باعتبار وضعها وبيانها واستقامتها، ودينا باعتبار الخضوع لها والتعبد بها، وملة باعتبار إملائها على الناس. أما الفقه فهو فهم المجتهدين للأحكام الشرعية العملية المستنبطة من أدلتها التفصيلية، فهو أخص من الشريعة وقابل للخطأ والصواب."},
+        {"t": "خصائص الشريعة الإسلامية", "b": "تتميز الشريعة بسبع خصائص كبرى: الربانية، والجزاء الدنيوي والأخروي، والشمولية، والواقعية، والوسطية، والجمع بين الثبات والمرونة، والموازنة بين مصالح الفرد والجماعة. انظر قسم «الخصائص» للتفصيل."},
+        {"t": "مقاصد الشريعة", "b": "تقوم المقاصد على جلب المصالح ودرء المفاسد، وهي ثلاث مراتب: ضرورية (حفظ الدين والنفس والعقل والنسل والمال)، وحاجية (رفع الحرج والمشقة)، وتحسينية (مكارم الأخلاق ومحاسن العادات)."}
+      ]
+    },
+    {
+      "title": "مصادر التشريع الإسلامي",
+      "summary": "الأدلة التي تستمد منها الأحكام الشرعية: مصادر متفق عليها بين جمهور الفقهاء، ومصادر تبعية اختلفوا في الاحتجاج بها ومداه.",
+      "lessons": [
+        {"t": "القرآن الكريم", "b": "كلام الله المنزل على رسوله محمد ﷺ بلفظه العربي ومعناه، المتعبد بتلاوته، المنقول بالتواتر، المكتوب بين دفتي المصحف. حجيته ثابتة بإعجازه ونقله القطعي، وهو المصدر الأول للتشريع."},
+        {"t": "السنة النبوية", "b": "ما صدر عن النبي ﷺ من قول أو فعل أو تقرير. تنقسم من حيث السند إلى متواترة ومشهورة وآحاد، وهي مع القرآن إما مؤكدة لأحكامه، أو مبينة لها، أو منشئة لأحكام سكت عنها."},
+        {"t": "الإجماع والقياس", "b": "الإجماع اتفاق المجتهدين من أمة محمد ﷺ بعد وفاته في عصر من العصور على حكم شرعي. والقياس إلحاق واقعة لا نص فيها بواقعة منصوص على حكمها لاشتراكهما في علة الحكم."},
+        {"t": "المصادر المختلف فيها", "b": "الاستحسان، والعرف، والمصالح المرسلة، والاستصحاب، وشرع من قبلنا، وقول الصحابي، وسد الذرائع. تتفاوت المذاهب في الأخذ بها توسعا وتضييقا."}
+      ]
+    },
+    {
+      "title": "تاريخ التشريع الإسلامي",
+      "summary": "مر التشريع الإسلامي بسبعة أدوار، من عصر الرسالة إلى عصر التقنين والمجامع الفقهية، لكل دور مميزاته ومصادره.",
+      "lessons": [
+        {"t": "عصر النبوة والخلفاء الراشدين", "b": "تشريع بالتدريج ووفق الوقائع (أسباب النزول وأسباب الورود)، بمرحلتين مكية ومدنية. ثم عصر الصحابة الذي ظهر فيه الاجتهاد مصدرا مستقلا، وجُمع فيه القرآن."},
+        {"t": "عصر التابعين وعصر الأئمة المجتهدين", "b": "ظهور مدرستي الحديث والرأي، ونشأة الفقه الافتراضي وعلم الجرح والتعديل، ثم عصر التدوين وتكوّن المذاهب الفقهية الكبرى."},
+        {"t": "عصر التقليد إلى عصر التقنين", "b": "ركود الاجتهاد والاشتغال بالمتون والشروح والحواشي، ثم صدور مجلة الأحكام العدلية سنة 1293هـ، ونهضة التقنين والدراسات المقارنة والمجامع الفقهية."}
+      ]
+    },
+    {
+      "title": "المذاهب الفقهية الأربعة",
+      "summary": "تعريف بأئمة المذاهب السنية الأربعة ومناهجهم في استنباط الأحكام والمصادر التي اعتمدوها.",
+      "lessons": [
+        {"t": "المذهب الحنفي", "b": "مؤسسه أبو حنيفة النعمان بن ثابت (80–150هـ) بالكوفة، إمام أهل الرأي. توسع في القياس والاستحسان، واشترط في خبر الآحاد شروطا خاصة."},
+        {"t": "المذهب المالكي", "b": "مؤسسه مالك بن أنس الأصبحي (93–179هـ) بالمدينة المنورة، صاحب «الموطأ». يجمع بين النقل والعقل ويأخذ بعمل أهل المدينة والمصالح المرسلة وسد الذرائع. وهو مذهب المغاربة."},
+        {"t": "المذهب الشافعي", "b": "مؤسسه محمد بن إدريس الشافعي (150–204هـ)، ولد بغزة وتتلمذ على مالك، ومزج بين مدرستي الحديث والرأي. صاحب «الرسالة» أول مصنف في أصول الفقه، و«الأم»."},
+        {"t": "المذهب الحنبلي", "b": "مؤسسه أحمد بن حنبل (164–241هـ) ببغداد، صاحب «المسند». يقدم النص وفتاوى الصحابة، ويأخذ بالحديث المرسل والضعيف قبل القياس الذي لا يلجأ إليه إلا للضرورة."}
+      ]
+    }
+  ],
+  "traits": [
+    {"title": "الربانية", "body": "الشريعة وحي من عند الله في مصدرها وغايتها، ولذلك لها هيبة واحترام في نفوس المؤمنين بها، حكاما ومحكومين، ويمتثلون لها طائعين مختارين.", "evidence": "«ألا له الخلق والأمر» — الأعراف 54"},
+    {"title": "الجزاء دنيوي وأخروي", "body": "لا يقتصر جزاء مخالفة أحكامها على العقوبة الدنيوية كما في القوانين الوضعية، بل يمتد إلى الجزاء الأخروي، فتتولد رقابة ذاتية تسبق رقابة السلطة.", "evidence": "«فمن يعمل مثقال ذرة خيرا يره» — الزلزلة 7"},
+    {"title": "الشمولية", "body": "تنظم علاقة الإنسان بربه وبنفسه وبغيره: العقائد والعبادات والمعاملات والأسرة والجنايات وشؤون الدولة والعلاقات الدولية.", "evidence": "«ما فرطنا في الكتاب من شيء» — الأنعام 38"},
+    {"title": "الواقعية", "body": "تراعي طبيعة الإنسان وقدرته وظروفه، فلا تكلفه ما لا يطيق، وتشرع الرخص عند المشقة كالفطر للمريض والمسافر.", "evidence": "«لا يكلف الله نفسا إلا وسعها» — البقرة 286"},
+    {"title": "الوسطية", "body": "توازن بين الروح والمادة، والدنيا والآخرة، والحقوق والواجبات، بعيدا عن الإفراط والتفريط.", "evidence": "«وكذلك جعلناكم أمة وسطا» — البقرة 143"},
+    {"title": "الثبات والمرونة", "body": "ثابتة في أصولها وكلياتها ومقاصدها، مرنة في فروعها ووسائلها، فتتسع للاجتهاد ولتغير الأزمنة والأمكنة والأعراف.", "evidence": "قاعدة: «لا يُنكر تغير الأحكام بتغير الأزمان»"},
+    {"title": "الموازنة بين الفرد والجماعة", "body": "تحفظ للفرد حقوقه وحرياته، وتقدم المصلحة العامة عند التعارض، فلا يطغى أحد الطرفين على الآخر.", "evidence": "«لا ضرر ولا ضرار» — حديث شريف"}
+  ],
+  "maqasid": [
+    {"name": "التحسينيات", "short": "مكارم الأخلاق", "desc": "ما تقتضيه المروءة والآداب وسير الأمور على أحسن منهاج. إذا فُقد لا تختل حياة الناس ولا ينالهم حرج، لكنها تصبح مستنكرة في تقدير العقول الراجحة.", "items": ["الطهارة وستر العورة | في العبادات", "آداب الأكل والشرب | في العادات", "منع بيع النجاسات | في المعاملات", "النهي عن قتل النساء والصبيان في الحرب | في الجنايات"]},
+    {"name": "الحاجيات", "short": "رفع الحرج", "desc": "ما يحتاج إليه الناس لليسر والسعة واحتمال مشاق التكليف. إذا فُقد لا يختل نظام الحياة، لكن ينالهم الحرج والضيق.", "items": ["الرخص | كالفطر للمريض والمسافر وقصر الصلاة", "إباحة الصيد والتمتع بالطيبات | في العادات", "عقود السلم والإجارة والمزارعة | في المعاملات", "الدية على العاقلة | في الجنايات"]},
+    {"name": "الضروريات", "short": "الكليات الخمس", "desc": "ما لا بد منه لقيام مصالح الدين والدنيا، بحيث إذا فُقد اختل نظام الحياة وعمت الفوضى. وهي خمس كليات مرتبة.", "items": ["حفظ الدين | كفالة حرية الاعتقاد ودرء العدوان والالتزام بتعاليمه", "حفظ النفس | تحريم القتل، والقصاص والدية، وتوفير الأمن", "حفظ العقل | تحريم المسكرات، والحث على طلب العلم", "حفظ النسل | تشريع الزواج، وتحريم الزنا والقذف", "حفظ المال | إباحة الكسب، وتحريم السرقة والغصب والربا"]}
+  ],
+  "sources": [
+    {"name": "القرآن الكريم", "group": "متفق عليه", "def": "كلام الله المنزل على رسوله محمد ﷺ بلفظه العربي ومعناه، المتعبد بتلاوته، المنقول إلينا بالتواتر، المكتوب بين دفتي المصحف.", "proof": "حجيته ثابتة بأنه من عند الله، والبرهان على ذلك إعجازه. ولا يتحقق الإعجاز إلا بثلاثة أركان: التحدي، ووجود المقتضي للمعارضة، وانتفاء المانع منها.", "points": ["ما أُلهمه الرسول ﷺ من معان عبّر عنها بلفظه ليس قرآنا، ومنه الحديث القدسي", "التفسير بألفاظ مرادفة لا يعد قرآنا", "الترجمة إلى لغة أخرى لا تعد قرآنا", "القراءات المروية بغير طريق التواتر لا تثبت لها أحكام القرآن"], "example": "«يا أيها الذين آمنوا أوفوا بالعقود» — قاعدة كلية في المعاملات."},
+    {"name": "السنة النبوية", "group": "متفق عليه", "def": "ما صدر عن النبي ﷺ من قول أو فعل أو تقرير بقصد التشريع والاقتداء.", "proof": "أجمع المسلمون على أن ما صدر عنه ﷺ ونُقل إلينا بسند صحيح يفيد القطع أو الظن الراجح حجة يجب اتباعها.", "points": ["السنة القولية: «إنما الأعمال بالنيات»", "السنة الفعلية: أداء الصلوات ومناسك الحج", "السنة التقريرية: ما أقره من أقوال الصحابة وأفعالهم", "من حيث السند: متواترة، ومشهورة، وآحاد", "مع القرآن: مؤكدة، ومبينة، ومنشئة لأحكام جديدة"], "example": "«لا ضرر ولا ضرار» — حديث مشهور صار قاعدة فقهية كبرى."},
+    {"name": "الإجماع", "group": "متفق عليه", "def": "اتفاق المجتهدين من أمة محمد ﷺ بعد وفاته، في عصر من العصور، على حكم شرعي.", "proof": "ثبتت حجيته بالكتاب والسنة، ومنه قوله ﷺ: «لا تجتمع أمتي على ضلالة».", "points": ["الإجماع الصريح: أن يبدي كل مجتهد رأيه صراحة", "الإجماع السكوتي: أن يقول بعضهم ويسكت الباقون، وقد اختلف في حجيته", "لا بد له من مستند من نص أو قياس"], "example": "إجماع الصحابة على جمع القرآن في مصحف واحد."},
+    {"name": "القياس", "group": "متفق عليه", "def": "إلحاق واقعة لا نص على حكمها بواقعة ورد نص بحكمها، في الحكم الذي ورد به النص، لتساويهما في علة الحكم.", "proof": "يستند إلى نصوص تأمر بالاعتبار، وإلى عمل الصحابة، ورده الظاهرية.", "points": ["الأصل: الواقعة المنصوص على حكمها", "الفرع: الواقعة المراد معرفة حكمها", "حكم الأصل: الحكم الشرعي الثابت بالنص", "العلة: الوصف الجامع بين الأصل والفرع"], "example": "تحريم كل مسكر قياسا على الخمر لاشتراكهما في علة الإسكار."},
+    {"name": "الاستحسان", "group": "مختلف فيه", "def": "العدول بالمسألة عن حكم نظائرها إلى حكم آخر لدليل أقوى يقتضي هذا العدول.", "proof": "أخذ به الحنفية والمالكية، وأنكره الشافعي وقال: «من استحسن فقد شرّع».", "points": ["استحسان بالنص", "استحسان بالإجماع", "استحسان بالضرورة", "استحسان بالعرف أو المصلحة"], "example": "جواز عقد الاستصناع مع أن المعقود عليه معدوم وقت العقد، لحاجة الناس."},
+    {"name": "العرف", "group": "مختلف فيه", "def": "ما اعتاده الناس وساروا عليه من قول أو فعل أو ترك.", "proof": "يعتبر ما لم يخالف نصا، ومن قواعده: «العادة محكّمة» و«المعروف عرفا كالمشروط شرطا».", "points": ["العرف الصحيح: لا يحل حراما ولا يحرم حلالا", "العرف الفاسد: يخالف الشرع فلا يعتبر", "العرف القولي والعرف العملي"], "example": "تقسيم المهر إلى معجل ومؤجل بحسب عرف البلد."},
+    {"name": "المصالح المرسلة", "group": "مختلف فيه", "def": "المصالح التي لم يشرع الشارع حكما لتحقيقها، ولم يقم دليل معين على اعتبارها أو إلغائها.", "proof": "توسع فيها المالكية خاصة، بشرط ملاءمتها لمقاصد الشرع وأن تكون عامة حقيقية لا متوهمة.", "points": ["مصالح معتبرة: شهد الشرع لها", "مصالح ملغاة: شهد الشرع ببطلانها", "مصالح مرسلة: سكت عنها الشرع"], "example": "جمع القرآن في مصحف، وتدوين الدواوين، وسك النقود."},
+    {"name": "الاستصحاب", "group": "مختلف فيه", "def": "الحكم على الشيء بالحال التي كان عليها حتى يقوم دليل على تغيرها.", "proof": "آخر مدار الفتوى، يرجع إليه المجتهد إذا لم يجد دليلا آخر.", "points": ["«الأصل في الأشياء الإباحة»", "«الأصل براءة الذمة»", "«اليقين لا يزول بالشك»"], "example": "من ثبت زواجه يبقى متزوجا حتى يثبت الطلاق."},
+    {"name": "شرع من قبلنا", "group": "مختلف فيه", "def": "الأحكام التي شرعها الله للأمم السابقة على لسان أنبيائهم.", "proof": "ما قصه الله علينا ولم يرد في شرعنا ما ينسخه، فالجمهور على أنه شرع لنا.", "points": ["ما نُسخ في شريعتنا لا يعمل به", "ما أقرته شريعتنا يعمل به", "ما سكت عنه شرعنا هو محل الخلاف"], "example": "«وكتبنا عليهم فيها أن النفس بالنفس» — المائدة 45."},
+    {"name": "قول الصحابي", "group": "مختلف فيه", "def": "ما نُقل عن الصحابي من فتوى أو قضاء في مسألة لم يرد فيها نص ولم يقع فيها إجماع.", "proof": "ظهر مصدرا في عهد التابعين بنقل فتاوى الصحابة؛ أخذ به مالك وأحمد، وفصّل فيه الشافعي.", "points": ["ما لا مجال للرأي فيه له حكم الرفع", "ما اتفق عليه الصحابة حجة", "ما اختلفوا فيه يتخير المجتهد أقربه إلى الكتاب والسنة"], "example": "قول عائشة رضي الله عنها في أقصى مدة الحمل، وقد أخذ به الحنفية."},
+    {"name": "سد الذرائع", "group": "مختلف فيه", "def": "منع الوسائل المباحة في أصلها إذا كانت تفضي غالبا إلى مفسدة.", "proof": "من أصول المذهب المالكي والحنبلي، وأخذ به غيرهما في مواضع.", "points": ["ما يفضي إلى المفسدة قطعا: يمنع", "ما يفضي إليها غالبا: يمنع عند المالكية", "ما يفضي إليها نادرا: لا يمنع"], "example": "النهي عن سب آلهة المشركين لئلا يسبوا الله — الأنعام 108."}
+  ],
+  "eras": [
+    {"title": "عصر النبوة", "period": "13 ق.هـ – 11هـ", "from": "-13", "to": "11", "summary": "ثلاث وعشرون سنة من البعثة إلى وفاة النبي ﷺ. تشريع متدرج واقعي، مصدره الوحي بشقيه: القرآن والسنة.", "points": ["المرحلة المكية (13 سنة): تصحيح العقيدة وبناء الشخصية", "المرحلة المدنية (10 سنوات): أحكام العبادات والمعاملات والأسرة والدولة", "أسباب النزول وأسباب الورود"]},
+    {"title": "عصر الصحابة والخلفاء الراشدين", "period": "11هـ – 40هـ", "from": "11", "to": "40", "summary": "اتساع الدولة بالفتوحات وظهور نوازل جديدة، فبرز الاجتهاد مصدرا مستقلا مع بقاء التشريع واقعيا.", "points": ["ترتيب البحث: القرآن ثم السنة ثم الشورى", "جمع القرآن في عهد أبي بكر", "المصادر: القرآن والسنة والإجماع والاجتهاد"]},
+    {"title": "عصر التابعين", "period": "منتصف ق1 – أوائل ق2هـ", "from": "40", "to": "100", "summary": "برز الفقه علما مستقلا، وظهرت مدرستا الحديث بالحجاز والرأي بالعراق.", "points": ["نشأة الفقه الافتراضي", "ظهور علم الجرح والتعديل", "قول الصحابي مصدرا جديدا"]},
+    {"title": "عصر الاجتهاد المطلق وتكوّن المذاهب", "period": "أوائل ق2 – منتصف ق4هـ", "from": "100", "to": "350", "summary": "العصر الذهبي للفقه: تدوين الحديث والفقه والرحلات العلمية، وتبلور المذاهب الفقهية.", "points": ["المذاهب الأربعة: الحنفي والمالكي والشافعي والحنبلي", "تدوين أصول الفقه", "ازدهار التأليف والمناظرة"]},
+    {"title": "عصر التخريج والترجيح", "period": "منتصف ق4 – منتصف ق7هـ", "from": "350", "to": "656", "summary": "تفرق الدولة الإسلامية، وركود الاجتهاد، وانشغال الفقهاء بتنقيح مذاهب أئمتهم وترتيبها.", "points": ["ظهور التقليد", "القول بإقفال باب الاجتهاد", "ينتهي بسقوط بغداد سنة 656هـ"]},
+    {"title": "عصر التقليد والجمود", "period": "منتصف ق7هـ – 1293هـ", "from": "656", "to": "1293", "summary": "غلبة المختصرات والمتون، ثم الشروح والحواشي عليها، والانصراف عن الابتكار.", "points": ["المتون والشروح والحواشي", "ظهور مجتهدين أفراد رغم الجمود", "ينتهي بصدور مجلة الأحكام العدلية (1851 مادة)"]},
+    {"title": "عصر النهضة والتقنين", "period": "1293هـ – اليوم", "from": "1293", "to": "1448", "summary": "عودة إلى الفقه الإسلامي وتطبيقه في القضاء والحياة العامة بصيغ حديثة.", "points": ["اتساع التقنين والتدوين الحديث", "الاستفادة من جميع المذاهب دون تقيد", "المؤتمرات والموسوعات والدراسات المقارنة", "الاجتهاد الجماعي عبر المجامع الفقهية"]}
+  ],
+  "madhahib": [
+    {"name": "المذهب الحنفي", "imam": "أبو حنيفة النعمان بن ثابت", "born": "80هـ", "died": "150هـ", "city": "الكوفة", "book": "نقل تلميذاه أبو يوسف ومحمد بن الحسن أقواله", "about": "إمام أهل الرأي وفقيه العراق، اشتغل بالفقه الافتراضي فاتسعت به دائرة الفقه. يشترط في خبر الآحاد ألا يخالفه عمل راويه، وألا يكون فيما تعم به البلوى، وألا يخالف الأصول والقياس.", "sources": ["القرآن", "السنة", "الإجماع", "قول الصحابي", "القياس", "الاستحسان", "العرف"]},
+    {"name": "المذهب المالكي", "imam": "مالك بن أنس الأصبحي", "born": "93هـ", "died": "179هـ", "city": "المدينة المنورة", "book": "الموطأ", "about": "إمام دار الهجرة، يجمع بين العقل والنقل. عُرف بإجلال العلم والجهر بالحق وعدم التحرج من قول «لا أدري». يأخذ بالمرسل إذا كان عن الثقات، وهو مذهب أهل المغرب.", "sources": ["القرآن", "السنة", "الإجماع", "قول الصحابي", "القياس", "الاستحسان", "المصالح المرسلة", "العرف", "سد الذرائع", "الاستصحاب"]},
+    {"name": "المذهب الشافعي", "imam": "محمد بن إدريس الشافعي", "born": "150هـ", "died": "204هـ", "city": "غزة ثم مكة والمدينة وبغداد ومصر", "book": "الرسالة، والأم", "about": "تتلمذ على مالك بالمدينة، واطلع على فقه العراق، فامتزجت لديه مدرستا الرأي والحديث. أول من دوّن أصول الفقه في «الرسالة». لا يعتبر الإجماع السكوتي حجة.", "sources": ["القرآن", "السنة", "الإجماع", "قول الصحابي", "القياس", "الاستصحاب"]},
+    {"name": "المذهب الحنبلي", "imam": "أحمد بن حنبل الشيباني", "born": "164هـ", "died": "241هـ", "city": "بغداد", "book": "المسند", "about": "إمام أهل الحديث، تتلمذ على الشافعي. ثبت في محنة خلق القرآن وسُجن نحو 28 شهرا. يأخذ بفتاوى الصحابة وبالحديث المرسل والضعيف ويقدمهما على القياس.", "sources": ["القرآن", "السنة", "قول الصحابي", "القياس"]}
+  ],
+  "matrixCols": ["القرآن", "السنة", "الإجماع", "قول الصحابي", "القياس", "الاستحسان", "المصالح المرسلة", "العرف", "سد الذرائع", "الاستصحاب"],
+  "glossary": [
+    {"term": "الشريعة", "def": "ما شرعه الله لعباده من أحكام على لسان نبيه ﷺ، في القرآن والسنة."},
+    {"term": "الفقه", "def": "العلم بالأحكام الشرعية العملية المكتسب من أدلتها التفصيلية، وهو فهم بشري للشريعة."},
+    {"term": "الحكم الشرعي", "def": "خطاب الله المتعلق بأفعال المكلفين اقتضاء أو تخييرا أو وضعا."},
+    {"term": "الاجتهاد", "def": "بذل الفقيه وسعه في استنباط الحكم الشرعي من أدلته."},
+    {"term": "التقليد", "def": "الأخذ بقول الغير من غير معرفة دليله."},
+    {"term": "التواتر", "def": "رواية جمع يستحيل تواطؤهم على الكذب عن مثلهم من أول السند إلى منتهاه."},
+    {"term": "خبر الآحاد", "def": "ما رواه عدد لم يبلغ حد التواتر، ويفيد الظن الراجح ويجب العمل به بشروطه."},
+    {"term": "الحديث المرسل", "def": "ما رفعه التابعي إلى النبي ﷺ دون ذكر الصحابي."},
+    {"term": "العلة", "def": "الوصف الظاهر المنضبط الذي بُني عليه الحكم، وهي ركن القياس."},
+    {"term": "المقاصد", "def": "الغايات والمعاني التي راعاها الشارع في تشريع الأحكام لتحقيق مصالح العباد."},
+    {"term": "الرخصة", "def": "حكم شُرع تخفيفا على المكلف لعذر طارئ، كالفطر في السفر."},
+    {"term": "النازلة", "def": "واقعة مستجدة تحتاج إلى حكم شرعي باجتهاد."},
+    {"term": "أسباب النزول", "def": "الوقائع والأسئلة التي نزلت الآيات بسببها، ويقابلها في السنة أسباب الورود."},
+    {"term": "الإجماع السكوتي", "def": "أن يقول بعض المجتهدين برأي فيشتهر ويسكت الباقون دون إنكار."},
+    {"term": "المتن والشرح والحاشية", "def": "المتن مختصر فقهي موجز، والشرح بيانه، والحاشية تعليق على الشرح."},
+    {"term": "مجلة الأحكام العدلية", "def": "أول تقنين حديث للفقه الحنفي في الدولة العثمانية، صدرت سنة 1293هـ وتضم 1851 مادة."},
+    {"term": "الجرح والتعديل", "def": "علم يبحث في أحوال الرواة قبولا وردا للتثبت من صحة الأحاديث."},
+    {"term": "مدرسة الرأي", "def": "اتجاه فقهي بالعراق توسع في القياس والتعليل وفهم معاني النصوص."}
+  ],
+  "quiz": [
+    {"q": "ما المعنى اللغوي الأصلي لكلمة «الشريعة»؟", "options": ["الحكم والقضاء", "مورد الماء الجاري الذي لا ينقطع", "العلم والفهم", "العادة المتكررة"], "answer": "2", "explain": "الشريعة لغة مورد الماء الذي يُقصد للشرب، ولا تسميه العرب شريعة إلا إذا كان ماؤه لا ينقطع."},
+    {"q": "أي مما يلي ليس من المقاصد الضرورية الخمسة؟", "options": ["حفظ العقل", "حفظ المال", "رفع الحرج", "حفظ النسل"], "answer": "3", "explain": "رفع الحرج من المقاصد الحاجية، أما الضروريات فهي حفظ الدين والنفس والعقل والنسل والمال."},
+    {"q": "السنة التي أقرها النبي ﷺ بسكوته عن فعل صدر من صحابي تسمى:", "options": ["سنة قولية", "سنة فعلية", "سنة تقريرية", "سنة آحاد"], "answer": "3", "explain": "التقرير هو إقرار النبي ﷺ لما صدر عن الصحابة بموافقته أو بسكوته وعدم إنكاره."},
+    {"q": "تحريم كل مسكر إلحاقا بالخمر لاشتراكهما في الإسكار مثال على:", "options": ["الاستحسان", "القياس", "العرف", "الاستصحاب"], "answer": "2", "explain": "هذا قياس: الأصل الخمر، والفرع المسكر الجديد، والعلة الإسكار."},
+    {"q": "قاعدة «الأصل براءة الذمة» تعود إلى دليل:", "options": ["الاستصحاب", "المصالح المرسلة", "سد الذرائع", "شرع من قبلنا"], "answer": "1", "explain": "الاستصحاب إبقاء ما كان على ما كان حتى يقوم الدليل على تغيره."},
+    {"q": "في أي دور من أدوار التشريع تكوّنت المذاهب الفقهية الكبرى؟", "options": ["عصر الصحابة", "عصر التقليد", "من أوائل ق2 إلى منتصف ق4هـ", "عصر التقنين"], "answer": "3", "explain": "الدور الرابع هو عصر الاجتهاد المطلق والتدوين، وفيه تبلورت المذاهب."},
+    {"q": "صاحب كتاب «الموطأ» هو:", "options": ["أبو حنيفة", "مالك بن أنس", "الشافعي", "أحمد بن حنبل"], "answer": "2", "explain": "الموطأ للإمام مالك بن أنس، إمام دار الهجرة."},
+    {"q": "أول من دوّن علم أصول الفقه في كتاب «الرسالة»:", "options": ["الشافعي", "أبو يوسف", "مالك", "ابن حنبل"], "answer": "1", "explain": "ألف الإمام الشافعي «الرسالة» فكانت أول مصنف في أصول الفقه."},
+    {"q": "مجلة الأحكام العدلية قننت أحكام المذهب:", "options": ["المالكي", "الشافعي", "الحنفي", "الحنبلي"], "answer": "3", "explain": "اعتمدت المجلة الراجح في المذهب الحنفي، المذهب الرسمي للدولة العثمانية، وبلغت 1851 مادة."},
+    {"q": "جمع القرآن في مصحف واحد يمثل نموذجا لـ:", "options": ["العرف", "المصالح المرسلة", "الاستحسان", "شرع من قبلنا"], "answer": "2", "explain": "جمع القرآن مصلحة لم يرد نص بالأمر بها ولا بإلغائها، فهو من المصالح المرسلة."}
+  ],
+  "library": [
+    {"title": "مدخل لدراسة الشريعة الإسلامية", "author": "د. يوسف القرضاوي", "publisher": "مؤسسة الرسالة — بيروت، ط1، 1414هـ/1993م", "kind": "كتاب", "desc": "مدخل منهجي يعرّف بالشريعة وخصائصها ومصادرها، ويناقش قضايا الاجتهاد والتجديد وتطبيق الشريعة في العصر الحديث.", "link": ""},
+    {"title": "المدخل لدراسة الشريعة الإسلامية", "author": "د. عبد الكريم زيدان", "publisher": "مؤسسة الرسالة ناشرون", "kind": "كتاب", "desc": "مرجع جامعي كلاسيكي في تاريخ التشريع ومصادره، والملكية والعقد ونظرية الحق، بأسلوب تعليمي واضح.", "link": ""},
+    {"title": "محاضرات في مادة المدخل لدراسة الشريعة الإسلامية", "author": "د. عبد الرزاق اصبيحي", "publisher": "مسلك القانون بالعربية — السداسي الأول", "kind": "محاضرات", "desc": "عروض المحاضرات: المفهوم والخصائص والمقاصد، المصادر، أدوار التشريع السبعة، والمذاهب الأربعة.", "link": ""},
+    {"title": "المدخل لدراسة الشريعة الإسلامية", "author": "ذ. عبد المنعم ابقال", "publisher": "السداسي الأول — القانون باللغة العربية", "kind": "عرض تقديمي", "desc": "عرض تفصيلي للمبحثين: مفهوم الشريعة وخصائصها ومقاصدها، ومصادر التشريع الإسلامي من القرآن إلى قول الصحابي.", "link": ""},
+    {"title": "محاضرات في المدخل لدراسة الشريعة الإسلامية", "author": "محمد بن معجوز", "publisher": "", "kind": "مرجع مقترح", "desc": "من المراجع المعتمدة في كليات الحقوق المغربية.", "link": ""},
+    {"title": "المدخل لدراسة الشريعة الإسلامية", "author": "عبد اللطيف هداية الله", "publisher": "", "kind": "مرجع مقترح", "desc": "مرجع جامعي مغربي في المادة.", "link": ""},
+    {"title": "المدخل لدراسة الشريعة الإسلامية", "author": "أحمد الجباري", "publisher": "", "kind": "مرجع مقترح", "desc": "مرجع جامعي في المادة.", "link": ""},
+    {"title": "مدخل لدراسة الشريعة الإسلامية", "author": "جمال الطاهري", "publisher": "", "kind": "مرجع مقترح", "desc": "مرجع جامعي في المادة.", "link": ""},
+    {"title": "المدخل لدراسة الشريعة الإسلامية", "author": "محمد رياض", "publisher": "", "kind": "مرجع مقترح", "desc": "مرجع جامعي في المادة.", "link": ""},
+    {"title": "المدخل لدراسة الشريعة الإسلامية", "author": "نجاة بضراني", "publisher": "", "kind": "مرجع مقترح", "desc": "مرجع جامعي في المادة.", "link": ""},
+    {"title": "مدخل إلى دراسة الشريعة الإسلامية", "author": "سعيد بويزري", "publisher": "", "kind": "مرجع مقترح", "desc": "مرجع جامعي في المادة.", "link": ""}
+  ],
+  "authors": [
+    {"name": "يوسف القرضاوي", "years": "1926 – 2022م", "role": "عالم ومفكر مصري", "bio": "تخرج من الأزهر الشريف، وألف عشرات الكتب في الفقه وأصوله والدعوة، منها «فقه الزكاة» و«الحلال والحرام في الإسلام»."},
+    {"name": "عبد الكريم زيدان", "years": "1917 – 2014م", "role": "فقيه وأصولي عراقي", "bio": "أستاذ الشريعة بجامعة بغداد، من أشهر مؤلفاته «الوجيز في أصول الفقه» و«المفصل في أحكام المرأة»، وكتبه مقررة في جامعات كثيرة."},
+    {"name": "عبد الرزاق اصبيحي", "years": "أستاذ جامعي", "role": "أستاذ القانون الخاص", "bio": "معدّ محاضرات المادة لمسلك القانون باللغة العربية، السداسي الأول."},
+    {"name": "عبد المنعم ابقال", "years": "أستاذ جامعي", "role": "أستاذ المادة", "bio": "معدّ العرض التقديمي للمادة في مبحثي المفهوم والخصائص والمقاصد، ومصادر التشريع."}
+  ]
+};
+</script>
+
+<script>
+(function(){
+"use strict";
+document.documentElement.setAttribute("dir","rtl");
+document.documentElement.setAttribute("lang","ar");
+
+/* ---------- storage (safe) ---------- */
+const K = {data:"shr.data.v1", pin:"shr.pin", prog:"shr.progress", theme:"shr.theme", unlocked:"shr.unlocked"};
+const store = {
+  get(k, s){ try{ return (s?sessionStorage:localStorage).getItem(k); }catch(e){ return null; } },
+  set(k, v, s){ try{ (s?sessionStorage:localStorage).setItem(k, v); return true; }catch(e){ return false; } },
+  del(k, s){ try{ (s?sessionStorage:localStorage).removeItem(k); }catch(e){} }
+};
+const clone = o => JSON.parse(JSON.stringify(o));
+function loadData(){
+  const def = clone(window.DEFAULT_DATA);
+  const raw = store.get(K.data);
+  if(!raw) return def;
+  try{
+    const saved = JSON.parse(raw);
+    for(const k in def){ if(!(k in saved)) saved[k] = def[k]; }
+    for(const k in def.site){ if(!(k in saved.site)) saved.site[k] = def.site[k]; }
+    for(const k in def.theme){ if(!(k in saved.theme)) saved.theme[k] = def.theme[k]; }
+    // add any new default sections
+    def.sections.forEach(s => { if(!saved.sections.find(x => x.id === s.id)) saved.sections.push(s); });
+    return saved;
+  }catch(e){ return def; }
+}
+let DATA = loadData();
+let progress = new Set(); try{ progress = new Set(JSON.parse(store.get(K.prog) || "[]")); }catch(e){}
+
+/* ---------- helpers ---------- */
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const escEm = s => esc(s).replace(/&lt;em&gt;/g,"<em>").replace(/&lt;\/em&gt;/g,"</em>");
+const AR = ["الأول","الثاني","الثالث","الرابع","الخامس","السادس","السابع","الثامن","التاسع","العاشر","الحادي عشر","الثاني عشر"];
+const ord = i => AR[i] || String(i+1);
+const icon = (id, cls="") => `<svg class="${cls}" aria-hidden="true"><use href="#${id}"/></svg>`;
+const split = (s) => { const i = s.indexOf("|"); return i < 0 ? [s.trim(), ""] : [s.slice(0,i).trim(), s.slice(i+1).trim()]; };
+function toast(msg){ const t = $("#toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(()=>t.classList.remove("show"), 2200); }
+
+/* ---------- theme ---------- */
+const DEF_T = window.DEFAULT_DATA.theme;
+const FONTS = {"Tajawal":"Tajawal:wght@400;500;700;800","Cairo":"Cairo:wght@400;500;700;800","Almarai":"Almarai:wght@400;700;800","IBM Plex Sans Arabic":"IBM+Plex+Sans+Arabic:wght@400;500;700","Noto Naskh Arabic":"Noto+Naskh+Arabic:wght@400;500;700","Readex Pro":"Readex+Pro:wght@400;500;700"};
+function applyTheme(){
+  const t = DATA.theme, root = document.documentElement;
+  const star = `<svg xmlns='http://www.w3.org/2000/svg' width='84' height='84' viewBox='0 0 84 84'><g fill='none' stroke='#D8B063' stroke-width='1.2'><rect x='24' y='24' width='36' height='36'/><rect x='24' y='24' width='36' height='36' transform='rotate(45 42 42)'/><circle cx='42' cy='42' r='8'/><path d='M0 0L16 16M84 0L68 16M0 84L16 68M84 84L68 68'/></g></svg>`;
+  root.style.setProperty("--star-tile", `url("data:image/svg+xml,${encodeURIComponent(star)}")`);
+  root.style.setProperty("--fs", t.scale || "1");
+  // font
+  const fam = FONTS[t.bodyFont] ? t.bodyFont : "Tajawal";
+  root.style.setProperty("--f-body", `"${fam}","Tajawal","Segoe UI",Tahoma,system-ui,sans-serif`);
+  if(fam !== "Tajawal"){
+    let l = $("#font-extra"); if(!l){ l = document.createElement("link"); l.id="font-extra"; l.rel="stylesheet"; document.head.appendChild(l); }
+    l.href = `https://fonts.googleapis.com/css2?family=${FONTS[fam]}&display=swap`;
+  }
+  // custom colours → injected stylesheet covering light + dark
+  let st = $("#user-theme"); if(!st){ st = document.createElement("style"); st.id = "user-theme"; document.head.appendChild(st); }
+  const custom = t.band !== DEF_T.band || t.gold !== DEF_T.gold || t.green !== DEF_T.green;
+  if(custom){
+    const B=t.band, G=t.gold, N=t.green;
+    const dark = `--band:color-mix(in srgb,${B} 62%,black);--band-2:color-mix(in srgb,${B} 72%,black);--gold:color-mix(in srgb,${G} 72%,white);--green:color-mix(in srgb,${N} 55%,white);--green-ink:color-mix(in srgb,${N} 40%,white);--tint:color-mix(in srgb,${N} 28%,#0B1613);--gold-soft:color-mix(in srgb,${G} 18%,#0B1613);`;
+    st.textContent = `:root{--band:${B};--band-2:color-mix(in srgb,${B} 86%,white);--gold:${G};--green:${N};--green-ink:${N};--tint:color-mix(in srgb,${N} 10%,white);--gold-soft:color-mix(in srgb,${G} 16%,white)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){${dark}}}
+:root[data-theme="dark"]{${dark}}`;
+  } else st.textContent = "";
+  // light/dark
+  const pref = store.get(K.theme) || t.defaultTheme || "system";
+  if(pref === "system") root.removeAttribute("data-theme"); else root.setAttribute("data-theme", pref);
+  syncThemeBtn();
+}
+function isDark(){
+  const a = document.documentElement.getAttribute("data-theme");
+  if(a) return a === "dark";
+  return window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches;
+}
+function syncThemeBtn(){ $("#theme-btn").innerHTML = icon(isDark() ? "i-sun" : "i-moon"); }
+$("#theme-btn").addEventListener("click", () => {
+  const next = isDark() ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", next); store.set(K.theme, next); syncThemeBtn();
+});
+
+/* ---------- render: site ---------- */
+const RENDER = {};
+const SECTION_META = {
+  why:{k:"تمهيد", h:"لماذا يدرس طالب القانون الشريعة الإسلامية؟", p:"خمسة أسباب تجعل هذه المادة حجر أساس في تكوين رجل القانون المغربي."},
+  syllabus:{k:"المقرر التفاعلي", h:"محاور المادة", p:"أربعة فصول تقودك من المفهوم إلى المذاهب. علّم على كل درس تنهيه لتتابع تقدمك، ويُحفظ تقدمك على جهازك."},
+  traits:{k:"الفصل الأول", h:"خصائص الشريعة الإسلامية", p:"السمات التي تميز الشريعة عن غيرها من الأنظمة القانونية والتشريعية."},
+  maqasid:{k:"الفصل الأول", h:"مقاصد الشريعة", p:"مقاصد الشريعة مبنية على جلب المصالح ودرء المفاسد، وهي ثلاث مراتب. اختر مرتبة لعرض تفاصيلها."},
+  sources:{k:"الفصل الثاني", h:"مصادر التشريع الإسلامي", p:"الأدلة التي تستنبط منها الأحكام: أربعة متفق عليها وأخرى اختلف الفقهاء في الأخذ بها."},
+  timeline:{k:"الفصل الثالث", h:"أدوار التشريع الإسلامي", p:"سبعة أدوار مر بها التشريع، من عصر الرسالة إلى عصر المجامع الفقهية."},
+  madhahib:{k:"الفصل الرابع", h:"المذاهب الفقهية الأربعة", p:"أئمة المذاهب السنية الأربعة، ومناهجهم، والمصادر التي اعتمدها كل مذهب."},
+  glossary:{k:"معجم المادة", h:"المصطلحات الأساسية", p:"تعريفات موجزة لأهم المصطلحات الواردة في المقرر. ابحث بالكلمة أو بجزء منها."},
+  quiz:{k:"تقويم ذاتي", h:"اختبر نفسك", p:"أسئلة اختيار من متعدد مع شرح لكل إجابة."},
+  library:{k:"المراجع", h:"المكتبة وأعلام المراجع", p:"المراجع المعتمدة في المادة ونبذة عن مؤلفيها."}
+};
+function head(id){ const m = SECTION_META[id]; const lab = (DATA.sections.find(s=>s.id===id)||{}).label;
+  return `<div class="sec-head"><div><div class="k">${esc(m.k)}</div><h2>${esc(m.h)}</h2><p>${esc(m.p)}</p></div></div>`; }
+
+function renderHero(){
+  const s = DATA.site;
+  const counts = [[DATA.chapters.length,"فصول"],[DATA.sources.length,"مصدرا للتشريع"],[DATA.eras.length,"أدوار تاريخية"],[DATA.madhahib.length,"مذاهب فقهية"]];
+  return `<section class="hero" id="home"><div class="wrap g">
+    <div>
+      <div class="eyebrow">${esc(s.eyebrow)}</div>
+      <h1>${escEm(s.heroTitle)}</h1>
+      <p class="lead">${esc(s.heroLead)}</p>
+      <div class="ctas"><a class="btn btn-gold" href="#syllabus">ابدأ المقرر</a><a class="btn btn-ghost" href="#quiz">اختبر معلوماتك</a></div>
+      ${s.teacher ? `<p class="lead" style="margin-top:18px;font-size:.95em">أستاذ المادة: <b style="color:var(--on-band)">${esc(s.teacher)}</b></p>` : ""}
+    </div>
+    <figure class="verse" style="margin:0">
+      <svg class="orn"><use href="#star"/></svg>
+      <q>﴿${esc(s.verse)}﴾</q>
+      <cite>${esc(s.verseRef)}</cite>
+      <p>${esc(s.verseNote)}</p>
+    </figure>
+  </div>
+  <div class="wrap"><div class="glance">${counts.map(c=>`<div><b class="num">${c[0]}</b><span>${c[1]}</span></div>`).join("")}</div></div>
+  </section>`;
+}
+RENDER.why = () => `${head("why")}<div class="reasons">${DATA.reasons.map(r=>`<div class="reason"><div class="ic">${icon("i-"+(r.icon||"book"))}</div><h3>${esc(r.title)}</h3><p>${esc(r.body)}</p></div>`).join("")}</div>`;
+
+let curCh = 0;
+RENDER.syllabus = () => {
+  const total = DATA.chapters.reduce((a,c)=>a+c.lessons.length,0);
+  return `${head("syllabus")}<div class="syl">
+    <aside class="syl-side">
+      <div class="progress"><b>تقدمك في المقرر</b><div class="bar"><i id="pbar"></i></div><small id="ptext" class="num"></small></div>
+      <div class="ch-tabs" role="tablist">${DATA.chapters.map((c,i)=>`<button class="ch-tab" role="tab" type="button" data-ch="${i}" aria-selected="${i===curCh}"><span class="n">${i+1}</span><span><small>الفصل ${ord(i)}</small><b>${esc(c.title)}</b></span></button>`).join("")}</div>
+    </aside>
+    <div class="ch-body" id="ch-body"></div>
+  </div>`;
+};
+function lessonKey(ci, li){ return ci + ":" + (DATA.chapters[ci].lessons[li].t || li); }
+function renderChapter(){
+  const c = DATA.chapters[curCh]; if(!c){ $("#ch-body").innerHTML = ""; return; }
+  $("#ch-body").innerHTML = `<div class="ch-intro"><span class="chip gold">الفصل ${ord(curCh)} · ${c.lessons.length} دروس</span><h3>${esc(c.title)}</h3><p>${esc(c.summary)}</p></div>` +
+    c.lessons.map((l,li)=>{ const k = lessonKey(curCh, li), d = progress.has(k);
+      return `<details class="lesson${d?" is-done":""}" ${li===0?"open":""}><summary><span class="t">${esc(l.t)}</span><label class="done-box"><input type="checkbox" data-lesson="${esc(k)}" ${d?"checked":""}> أنهيته</label>${icon("i-caret","caret")}</summary><div class="lb">${String(l.b||"").split(/\n+/).map(p=>`<p>${esc(p)}</p>`).join("")}</div></details>`; }).join("");
+  updateProgress();
+}
+function updateProgress(){
+  const keys = []; DATA.chapters.forEach((c,ci)=>c.lessons.forEach((l,li)=>keys.push(lessonKey(ci,li))));
+  const done = keys.filter(k=>progress.has(k)).length, pct = keys.length ? Math.round(done*100/keys.length) : 0;
+  const b = $("#pbar"), t = $("#ptext"); if(b) b.style.width = pct+"%"; if(t) t.textContent = `${done} من ${keys.length} درسا · ${pct}%`;
+}
+
+RENDER.traits = () => `${head("traits")}<div class="traits">${DATA.traits.map((t,i)=>`<article class="trait"><div class="idx">الخاصية ${ord(i)}</div><h3>${esc(t.title)}</h3><p>${esc(t.body)}</p>${t.evidence?`<div class="ev">${esc(t.evidence)}</div>`:""}</article>`).join("")}</div>`;
+
+let curMaq = 2;
+RENDER.maqasid = () => `${head("maqasid")}<div class="maq">
+  <div class="tiers" role="group" aria-label="مراتب المقاصد">${DATA.maqasid.map((m,i)=>`<button class="tier" type="button" data-maq="${i}" aria-pressed="${i===curMaq}">${esc(m.name)}<small>${esc(m.short)}</small></button>`).join("")}
+  <small style="color:var(--muted);margin-top:6px">القاعدة أساس البناء: الضروري أصل، والحاجي مكمّل له، والتحسيني مكمّل للحاجي.</small></div>
+  <div class="maq-detail" id="maq-detail" aria-live="polite"></div></div>`;
+function renderMaq(){
+  const m = DATA.maqasid[curMaq]; if(!m) return;
+  $("#maq-detail").innerHTML = `<span class="chip">${esc(m.short)}</span><h3>${esc(m.name)}</h3><p>${esc(m.desc)}</p><div class="kul">${(m.items||[]).map(it=>{const [a,b]=split(it);return `<div><b>${esc(a)}</b>${b?`<span>${esc(b)}</span>`:""}</div>`;}).join("")}</div>`;
+  $$(".tier").forEach(b=>b.setAttribute("aria-pressed", String(+b.dataset.maq===curMaq)));
+}
+
+let srcGroup = "متفق عليه", curSrc = 0;
+RENDER.sources = () => `${head("sources")}<div class="src-grid">
+  <div><div class="seg" role="group">${["متفق عليه","مختلف فيه"].map(g=>`<button type="button" data-grp="${g}" aria-pressed="${g===srcGroup}">${g==="متفق عليه"?"المصادر المتفق عليها":"المصادر المختلف فيها"}</button>`).join("")}</div>
+  <div class="src-list" id="src-list"></div>
+  <div class="order"><span>القرآن</span><i>←</i><span>السنة</span><i>←</i><span>الإجماع</span><i>←</i><span>الاجتهاد</span><small>ترتيب البحث عن الحكم عند الصحابة: لا ينتقلون إلى مرتبة إلا إذا لم يجدوا الحكم فيما قبلها.</small></div></div>
+  <article class="src-card" id="src-card" aria-live="polite"></article></div>`;
+function renderSrc(){
+  const list = DATA.sources.map((s,i)=>({s,i})).filter(x=>x.s.group===srcGroup);
+  if(!list.find(x=>x.i===curSrc) && list[0]) curSrc = list[0].i;
+  $("#src-list").innerHTML = list.map((x,n)=>`<button class="src-item" type="button" data-src="${x.i}" aria-pressed="${x.i===curSrc}"><span class="n num">${n+1}</span><b>${esc(x.s.name)}</b></button>`).join("") || `<div class="empty">لا توجد مصادر في هذه الفئة.</div>`;
+  const s = DATA.sources[curSrc];
+  $("#src-card").innerHTML = s ? `<span class="chip ${s.group==="متفق عليه"?"":"gold"}">${esc(s.group)}</span><h3>${esc(s.name)}</h3>
+    <dl><div><dt>التعريف</dt><dd>${esc(s.def)}</dd></div>
+    ${s.proof?`<div><dt>الحجية والموقف منه</dt><dd>${esc(s.proof)}</dd></div>`:""}
+    ${(s.points||[]).length?`<div><dt>أبرز المسائل</dt><dd><ul>${s.points.map(p=>`<li>${esc(p)}</li>`).join("")}</ul></dd></div>`:""}
+    ${s.example?`<div><dt>مثال تطبيقي</dt><dd style="font-family:var(--f-quote);font-size:1.12em">${esc(s.example)}</dd></div>`:""}</dl>` : "";
+  $$("[data-grp]").forEach(b=>b.setAttribute("aria-pressed", String(b.dataset.grp===srcGroup)));
+}
+
+RENDER.timeline = () => {
+  const eras = DATA.eras, min = Math.min(...eras.map(e=>+e.from||0)), max = Math.max(...eras.map(e=>+e.to||0)), span = Math.max(1, max-min);
+  const shades = [100,82,68,100,82,68,100];
+  const bar = eras.map((e,i)=>{ const w = Math.max(0.8, ((+e.to)-(+e.from))*100/span);
+    return `<div style="flex:0 0 ${w}%;background:color-mix(in srgb,var(--band) ${shades[i%7]}%,var(--gold))" title="${esc(e.title)} · ${esc(e.period)}">${i+1}</div>`; }).join("");
+  const ticks = [0,300,600,900,1200].filter(v=>v>=min&&v<=max).map(v=>`<span style="position:absolute;inset-inline-start:${(v-min)*100/span}%;transform:translateX(50%)">${v}هـ</span>`).join("");
+  return `${head("timeline")}
+  <div class="century"><div class="century-bar">${bar}</div><div class="century-axis" style="position:relative;height:20px;display:block">${ticks}</div>
+  <p class="note">شريط بمقياس حقيقي للسنوات الهجرية من البعثة إلى اليوم؛ الأرقام تشير إلى رقم الدور.</p></div>
+  <div class="tl">${eras.map((e,i)=>`<div class="era"><div class="dot num">${i+1}</div><article class="era-card"><header><h3>الدور ${ord(i)}: ${esc(e.title)}</h3><span class="chip gold num">${esc(e.period)}</span></header><p>${esc(e.summary)}</p>${(e.points||[]).length?`<ul>${e.points.map(p=>`<li>${esc(p)}</li>`).join("")}</ul>`:""}</article></div>`).join("")}</div>`;
+};
+
+RENDER.madhahib = () => {
+  const cols = DATA.matrixCols || [];
+  return `${head("madhahib")}<div class="mad">${DATA.madhahib.map(m=>`<article class="imam"><div class="cap"><h3>${esc(m.name)}</h3><span>${esc(m.imam)}</span></div><div class="bd">
+    <dl class="facts"><dt>المولد</dt><dd class="num">${esc(m.born)}</dd><dt>الوفاة</dt><dd class="num">${esc(m.died)}</dd><dt>الموطن</dt><dd>${esc(m.city)}</dd><dt>أهم الآثار</dt><dd>${esc(m.book)}</dd></dl>
+    <p>${esc(m.about)}</p></div></article>`).join("")}</div>
+  <h3 class="sub-h">مقارنة المصادر المعتمدة لدى المذاهب</h3>
+  <div class="matrix-wrap"><table class="matrix"><thead><tr><th>المذهب</th>${cols.map(c=>`<th>${esc(c)}</th>`).join("")}</tr></thead>
+  <tbody>${DATA.madhahib.map(m=>`<tr><td>${esc(m.name)}</td>${cols.map(c=>(m.sources||[]).includes(c)?`<td><span class="yes" aria-label="نعم">✓</span></td>`:`<td><span class="no" aria-label="لا">—</span></td>`).join("")}</tr>`).join("")}</tbody></table></div>
+  <p class="note">وفق ما ورد في محاضرات المقرر. علامة ✓ تعني أن المذهب نص على اعتماد المصدر ضمن أصوله؛ وقد يأخذ مذهب بمصدر في مواضع دون أن يجعله أصلا مستقلا.</p>`;
+};
+
+let glQ = "";
+RENDER.glossary = () => `${head("glossary")}<div class="gl-tools"><label class="search">${icon("i-search")}<input id="gl-q" type="search" placeholder="ابحث عن مصطلح… مثل: القياس" value="${esc(glQ)}" aria-label="بحث في المصطلحات"></label></div><div class="gl" id="gl"></div>`;
+const norm = s => String(s).replace(/[ً-ْـ]/g,"").replace(/[أإآ]/g,"ا").replace(/ة/g,"ه").replace(/ى/g,"ي");
+function renderGl(){
+  const q = norm(glQ.trim());
+  const items = DATA.glossary.filter(g=>!q || norm(g.term+" "+g.def).includes(q)).sort((a,b)=>a.term.localeCompare(b.term,"ar"));
+  $("#gl").innerHTML = items.map(g=>`<div class="term"><b>${esc(g.term)}</b><p>${esc(g.def)}</p></div>`).join("") || `<div class="empty" style="grid-column:1/-1">لا نتائج لـ «${esc(glQ)}». جرّب كلمة أقصر.</div>`;
+}
+
+let qz = {i:0, score:0, picked:null};
+RENDER.quiz = () => `${head("quiz")}<div class="quiz" id="quiz-box"></div>`;
+function renderQuiz(){
+  const box = $("#quiz-box"), Q = DATA.quiz; if(!box) return;
+  if(!Q.length){ box.innerHTML = `<div class="empty">لا توجد أسئلة بعد. أضفها من لوحة التحكم.</div>`; return; }
+  if(qz.i >= Q.length){
+    const pct = Math.round(qz.score*100/Q.length);
+    box.innerHTML = `<div class="score"><span class="chip gold">النتيجة النهائية</span><b class="num">${qz.score} / ${Q.length}</b><p>${pct>=80?"ممتاز، استيعاب متين للمقرر.":pct>=50?"جيد، راجع الدروس التي أخطأت فيها.":"راجع الفصول ثم أعد المحاولة."}</p><div class="qfoot" style="justify-content:center"><button class="btn btn-main" type="button" id="qz-re">إعادة الاختبار</button></div></div>`;
+    return;
+  }
+  const q = Q[qz.i], ans = (+q.answer||1)-1, letters = ["أ","ب","ج","د","هـ","و"];
+  box.innerHTML = `<div class="qhead"><span class="chip">السؤال <span class="num">${qz.i+1}</span> من <span class="num">${Q.length}</span></span><span class="chip gold">النقاط: <span class="num">${qz.score}</span></span></div>
+  <div class="qbar"><i style="width:${qz.i*100/Q.length}%"></i></div><h3>${esc(q.q)}</h3>
+  <div class="opts">${(q.options||[]).map((o,j)=>{ let c=""; if(qz.picked!==null){ if(j===ans) c=" right"; else if(j===qz.picked) c=" wrong"; }
+    return `<button class="opt${c}" type="button" data-opt="${j}" ${qz.picked!==null?"disabled":""}><span class="l">${letters[j]||j+1}</span>${esc(o)}</button>`; }).join("")}</div>
+  ${qz.picked!==null?`<div class="explain"><b>${qz.picked===ans?"إجابة صحيحة.":"إجابة غير صحيحة."}</b> ${esc(q.explain)}</div><div class="qfoot"><button class="btn btn-main" type="button" id="qz-next">${qz.i+1<Q.length?"السؤال التالي":"عرض النتيجة"}</button></div>`:""}`;
+}
+
+let libKind = "الكل";
+RENDER.library = () => {
+  const kinds = ["الكل", ...new Set(DATA.library.map(b=>b.kind).filter(Boolean))];
+  return `${head("library")}<div class="seg lib-filter" role="group">${kinds.map(k=>`<button type="button" data-kind="${esc(k)}" aria-pressed="${k===libKind}">${esc(k)}</button>`).join("")}</div>
+  <div class="lib" id="lib"></div>
+  <h3 class="sub-h">أعلام المراجع</h3>
+  <div class="authors">${DATA.authors.map(a=>`<div class="author"><div class="av">${esc((a.name||"؟").trim().charAt(0))}</div><div><h4>${esc(a.name)}</h4><small class="num">${esc(a.role)}${a.years?" · "+esc(a.years):""}</small><p>${esc(a.bio)}</p></div></div>`).join("")}</div>`;
+};
+function renderLib(){
+  const items = DATA.library.filter(b=>libKind==="الكل"||b.kind===libKind);
+  $("#lib").innerHTML = items.map(b=>`<article class="book"><div class="spine"><span></span></div><div><h3>${esc(b.title)}</h3><div class="by">${esc(b.author)}</div>${b.publisher?`<p class="num">${esc(b.publisher)}</p>`:""}<p>${esc(b.desc)}</p><div class="meta"><span class="chip">${esc(b.kind)}</span>${/^https?:\/\//.test(b.link||"")?`<a class="open" href="${esc(b.link)}" target="_blank" rel="noopener">فتح المرجع ↗</a>`:""}</div></div></article>`).join("");
+  $$("[data-kind]").forEach(b=>b.setAttribute("aria-pressed", String(b.dataset.kind===libKind)));
+}
+
+function renderSite(){
+  applyTheme();
+  const s = DATA.site;
+  $("#brand-name").textContent = s.brand; $("#brand-sub").textContent = s.tagline;
+  $("#foot-name").textContent = s.brand; $("#foot-text").textContent = s.footer;
+  $("#foot-right").textContent = [s.year, s.contact].filter(Boolean).join(" · ");
+  document.title = s.brand;
+  const vis = DATA.sections.filter(x=>x.visible && RENDER[x.id]);
+  $("#nav").innerHTML = vis.map(x=>`<a href="#${x.id}" data-nav="${x.id}">${esc(x.label)}</a>`).join("");
+  $("#main").innerHTML = renderHero() + vis.map((x,i)=>`<section class="sec${i%2===0?" alt":""}" id="${x.id}"><div class="wrap">${RENDER[x.id]()}</div></section>`).join("");
+  if(curCh >= DATA.chapters.length) curCh = 0;
+  if(curMaq >= DATA.maqasid.length) curMaq = Math.max(0, DATA.maqasid.length-1);
+  if(curSrc >= DATA.sources.length) curSrc = 0;
+  if($("#ch-body")) renderChapter();
+  if($("#maq-detail")) renderMaq();
+  if($("#src-list")) renderSrc();
+  if($("#gl")) renderGl();
+  if($("#quiz-box")){ if(qz.i > DATA.quiz.length) qz = {i:0,score:0,picked:null}; renderQuiz(); }
+  if($("#lib")) renderLib();
+  observeNav();
+}
+
+/* ---------- interactions (delegated) ---------- */
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-ch],[data-maq],[data-grp],[data-src],[data-opt],#qz-next,#qz-re,[data-kind],#burger,.nav a");
+  if(!t) return;
+  if(t.dataset.ch !== undefined){ curCh = +t.dataset.ch; $$(".ch-tab").forEach(b=>b.setAttribute("aria-selected", String(+b.dataset.ch===curCh))); renderChapter(); }
+  else if(t.dataset.maq !== undefined){ curMaq = +t.dataset.maq; renderMaq(); }
+  else if(t.dataset.grp !== undefined){ srcGroup = t.dataset.grp; renderSrc(); }
+  else if(t.dataset.src !== undefined){ curSrc = +t.dataset.src; renderSrc(); }
+  else if(t.dataset.opt !== undefined){ if(qz.picked!==null) return; qz.picked = +t.dataset.opt; if(qz.picked === (+DATA.quiz[qz.i].answer||1)-1) qz.score++; renderQuiz(); }
+  else if(t.id === "qz-next"){ qz.i++; qz.picked = null; renderQuiz(); }
+  else if(t.id === "qz-re"){ qz = {i:0,score:0,picked:null}; renderQuiz(); }
+  else if(t.dataset.kind !== undefined){ libKind = t.dataset.kind; renderLib(); }
+  else if(t.id === "burger"){ const n = $("#nav"); n.classList.toggle("open"); t.setAttribute("aria-expanded", String(n.classList.contains("open"))); }
+  else if(t.matches(".nav a")){ $("#nav").classList.remove("open"); $("#burger").setAttribute("aria-expanded","false"); }
+});
+document.addEventListener("change", e => {
+  const c = e.target.closest("[data-lesson]"); if(!c) return;
+  const k = c.dataset.lesson; c.checked ? progress.add(k) : progress.delete(k);
+  store.set(K.prog, JSON.stringify([...progress])); c.closest(".lesson").classList.toggle("is-done", c.checked); updateProgress();
+});
+document.addEventListener("input", e => { if(e.target.id === "gl-q"){ glQ = e.target.value; renderGl(); } });
+let io;
+function observeNav(){
+  if(io) io.disconnect(); if(!("IntersectionObserver" in window)) return;
+  io = new IntersectionObserver(es => es.forEach(en => { if(en.isIntersecting){ $$(".nav a").forEach(a=>a.classList.toggle("on", a.dataset.nav===en.target.id)); } }), {rootMargin:"-45% 0px -50% 0px"});
+  $$("main section[id]").forEach(s=>io.observe(s));
+}
+
+/* =========================================================
+   CONTROL PANEL
+   ========================================================= */
+const SCHEMA = {
+  reasons:{label:"أسباب دراسة المادة", title:"title", fields:[["icon","select","الأيقونة",["flag","scale","hist","book","brief"]],["title","text","العنوان"],["body","textarea","النص"]]},
+  chapters:{label:"الفصول والدروس", title:"title", fields:[["title","text","عنوان الفصل"],["summary","textarea","تقديم الفصل"],["lessons","pairs","الدروس — سطر لكل درس بصيغة: العنوان | النص"]]},
+  traits:{label:"الخصائص", title:"title", fields:[["title","text","الخاصية"],["body","textarea","الشرح"],["evidence","text","الشاهد"]]},
+  maqasid:{label:"مراتب المقاصد", title:"name", fields:[["name","text","المرتبة"],["short","text","وصف قصير"],["desc","textarea","التعريف"],["items","lines","العناصر — سطر لكل عنصر: الاسم | الشرح"]]},
+  sources:{label:"مصادر التشريع", title:"name", fields:[["name","text","المصدر"],["group","select","الفئة",["متفق عليه","مختلف فيه"]],["def","textarea","التعريف"],["proof","textarea","الحجية والموقف"],["points","lines","أبرز المسائل — سطر لكل مسألة"],["example","text","مثال تطبيقي"]]},
+  eras:{label:"أدوار التشريع", title:"title", fields:[["title","text","اسم الدور"],["period","text","الفترة (نص ظاهر)"],["from","number","بداية الفترة بالسنة الهجرية (للشريط الزمني)"],["to","number","نهاية الفترة بالسنة الهجرية"],["summary","textarea","الملخص"],["points","lines","المميزات — سطر لكل ميزة"]]},
+  madhahib:{label:"المذاهب", title:"name", fields:[["name","text","المذهب"],["imam","text","الإمام المؤسس"],["born","text","المولد"],["died","text","الوفاة"],["city","text","الموطن"],["book","text","أهم الآثار"],["about","textarea","نبذة"],["sources","lines","المصادر المعتمدة — سطر لكل مصدر (بنفس أسماء أعمدة جدول المقارنة)"]]},
+  matrixCols:{label:"أعمدة جدول مقارنة المذاهب", special:"lines"},
+  glossary:{label:"المصطلحات", title:"term", fields:[["term","text","المصطلح"],["def","textarea","التعريف"]]},
+  quiz:{label:"أسئلة الاختبار", title:"q", fields:[["q","textarea","السؤال"],["options","lines","الخيارات — سطر لكل خيار"],["answer","number","رقم الخيار الصحيح (1، 2، 3…)"],["explain","textarea","شرح الإجابة"]]},
+  library:{label:"المكتبة", title:"title", fields:[["title","text","العنوان"],["author","text","المؤلف"],["publisher","text","الناشر والطبعة"],["kind","text","النوع (كتاب، محاضرات…)"],["desc","textarea","الوصف"],["link","url","رابط الملف أو الصفحة (اختياري)"]]},
+  authors:{label:"أعلام المراجع", title:"name", fields:[["name","text","الاسم"],["years","text","السنوات"],["role","text","الصفة"],["bio","textarea","نبذة"]]}
+};
+const SITE_FIELDS = [["brand","text","اسم الموقع"],["tagline","text","الشعار تحت الاسم"],["eyebrow","text","السطر العلوي في الواجهة"],["heroTitle","text","العنوان الرئيسي (ضع <em>…</em> لتلوين جزء بالذهبي)"],["heroLead","textarea","الفقرة التعريفية"],["teacher","text","أستاذ المادة (اختياري)"],["verse","textarea","الآية في الواجهة"],["verseRef","text","مرجع الآية"],["verseNote","textarea","تعليق تحت الآية"],["year","text","الموسم الجامعي"],["contact","text","معلومات التواصل (تظهر في التذييل)"],["footer","textarea","نص التذييل"]];
+
+let cpTab = "general", cpColl = "chapters", openItem = -1, dirty = false;
+const TABS = [["general","عام"],["look","المظهر"],["sections","الأقسام"],["content","المحتوى"],["backup","نسخ احتياطي"],["security","الأمان"]];
+const unlocked = () => store.get(K.unlocked, true) === "1";
+const getPin = () => store.get(K.pin) || "1234";
+
+function openCP(){ $("#cp").classList.add("show"); $("#ov").classList.add("show"); $("#cp").setAttribute("aria-hidden","false"); drawCP(); }
+function closeCP(){ $("#cp").classList.remove("show"); $("#ov").classList.remove("show"); $("#cp").setAttribute("aria-hidden","true"); }
+$("#cp-open").addEventListener("click", openCP);
+$("#cp-close").addEventListener("click", closeCP);
+$("#ov").addEventListener("click", closeCP);
+document.addEventListener("keydown", e => { if(e.key === "Escape" && $("#cp").classList.contains("show")) closeCP(); });
+$("#cp-lockbtn").addEventListener("click", () => { store.del(K.unlocked, true); drawCP(); toast("تم قفل اللوحة"); });
+
+function fieldHTML(path, type, label, val, opts){
+  const id = "f-" + path.replace(/[^a-zA-Z0-9]/g,"-");
+  let ctl;
+  if(type === "textarea") ctl = `<textarea id="${id}" data-path="${path}" data-type="text">${esc(val)}</textarea>`;
+  else if(type === "lines") ctl = `<textarea id="${id}" data-path="${path}" data-type="lines" style="min-height:120px">${esc((val||[]).join("\n"))}</textarea>`;
+  else if(type === "pairs") ctl = `<textarea id="${id}" data-path="${path}" data-type="pairs" style="min-height:200px">${esc((val||[]).map(p=>p.t+" | "+p.b).join("\n"))}</textarea>`;
+  else if(type === "select") ctl = `<select id="${id}" data-path="${path}" data-type="text">${opts.map(o=>`<option ${o===val?"selected":""}>${esc(o)}</option>`).join("")}</select>`;
+  else ctl = `<input id="${id}" type="${type==="number"?"number":type==="url"?"url":type==="password"?"password":"text"}" data-path="${path}" data-type="text" value="${esc(val)}" ${type==="url"?'dir="ltr"':""}>`;
+  return `<div class="fld"><label for="${id}">${esc(label)}</label>${ctl}</div>`;
+}
+function setPath(path, v){ const p = path.split("."); let o = DATA; for(let i=0;i<p.length-1;i++) o = o[p[i]]; o[p[p.length-1]] = v; }
+function getPath(path){ return path.split(".").reduce((o,k)=>o==null?o:o[k], DATA); }
+
+function drawCP(){
+  const b = $("#cp-b");
+  if(!unlocked()){
+    $("#cp-tabs").hidden = true; $("#cp-f").hidden = true; $("#cp-lockbtn").hidden = true;
+    b.innerHTML = `<form class="lock" id="lock-form"><svg><use href="#i-lock"/></svg><h3>دخول المشرف</h3><p>أدخل الرمز السري لتعديل محتوى الموقع ومظهره.</p>
+      <div class="fld"><input id="pin-in" type="password" inputmode="numeric" autocomplete="current-password" placeholder="الرمز السري" style="text-align:center"></div>
+      <div class="err" id="pin-err"></div><button class="btn btn-main" type="submit" style="width:100%;justify-content:center">دخول</button>
+      <p style="margin-top:14px;font-size:.8rem">الرمز الافتراضي <b class="num">1234</b>، غيّره من تبويب «الأمان».</p></form>`;
+    $("#lock-form").addEventListener("submit", ev => { ev.preventDefault();
+      if($("#pin-in").value === getPin()){ store.set(K.unlocked,"1",true); drawCP(); toast("مرحبا بك في لوحة التحكم"); }
+      else { $("#pin-err").textContent = "الرمز غير صحيح. حاول مرة أخرى."; $("#pin-in").select(); } });
+    setTimeout(()=>$("#pin-in")?.focus(), 50);
+    return;
+  }
+  $("#cp-tabs").hidden = false; $("#cp-lockbtn").hidden = false;
+  $("#cp-tabs").innerHTML = TABS.map(([k,l])=>`<button type="button" role="tab" data-cptab="${k}" aria-selected="${k===cpTab}">${l}</button>`).join("");
+  $("#cp-f").hidden = ["backup","security"].includes(cpTab);
+  b.innerHTML = PANES[cpTab]();
+  b.scrollTop = 0;
+}
+
+const PANES = {
+  general: () => `<div class="helpbox">عدّل النصوص العامة للموقع ثم اضغط «حفظ ونشر التغييرات».</div>` + SITE_FIELDS.map(([k,t,l])=>fieldHTML("site."+k, t, l, DATA.site[k])).join(""),
+  look: () => { const t = DATA.theme;
+    const col = (k,l) => `<div class="fld"><label for="c-${k}">${l}</label><div class="color-row"><input type="color" id="c-${k}" data-path="theme.${k}" data-type="text" value="${esc(t[k])}"><code dir="ltr" class="num">${esc(t[k])}</code></div></div>`;
+    return `<div class="helpbox">تنطبق الألوان على الوضعين الفاتح والداكن، ويُشتق اللون الداكن تلقائيا.</div>
+    <div class="row2">${col("band","لون الشريط والواجهة")}${col("gold","اللون الذهبي (التمييز)")}</div>${col("green","اللون الأخضر (الروابط والعناصر)")}
+    <button class="mini" type="button" id="reset-colors" style="margin-bottom:18px">استعادة الألوان الأصلية</button>
+    <div class="fld"><label for="f-font">خط النصوص</label><select id="f-font" data-path="theme.bodyFont" data-type="text">${Object.keys(FONTS).map(f=>`<option ${f===t.bodyFont?"selected":""}>${f}</option>`).join("")}</select><span class="hint">تبقى العناوين بخط «ريم الكوفي» والآيات بخط «أميري».</span></div>
+    <div class="fld"><label for="f-scale">حجم الخط: <span class="num" id="scale-v">${Math.round(t.scale*100)}%</span></label><input id="f-scale" type="range" min="0.9" max="1.2" step="0.05" value="${esc(t.scale)}" data-path="theme.scale" data-type="text"></div>
+    <div class="fld"><label for="f-dt">الوضع الافتراضي للزوار</label><select id="f-dt" data-path="theme.defaultTheme" data-type="text">${[["system","حسب جهاز الزائر"],["light","فاتح"],["dark","داكن"]].map(([v,l])=>`<option value="${v}" ${v===t.defaultTheme?"selected":""}>${l}</option>`).join("")}</select></div>`; },
+  sections: () => `<div class="helpbox">أظهر أو أخفِ الأقسام، وغيّر أسماءها في القائمة، ورتّبها بالأسهم.</div>` +
+    DATA.sections.map((s,i)=>`<div class="sw"><label style="display:flex;gap:8px;align-items:center;flex:1;min-width:0"><input type="checkbox" data-secvis="${i}" ${s.visible?"checked":""} style="accent-color:var(--green);width:18px;height:18px"><input type="text" data-path="sections.${i}.label" data-type="text" value="${esc(s.label)}" style="flex:1;min-width:0;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface)" aria-label="اسم القسم"></label>
+    <div class="mv"><button class="mini" type="button" data-secmv="${i}:-1" aria-label="أعلى">↑</button><button class="mini" type="button" data-secmv="${i}:1" aria-label="أسفل">↓</button></div></div>`).join(""),
+  content: () => { const sc = SCHEMA[cpColl];
+    let h = `<div class="fld"><label for="coll">القسم المراد تعديله</label><select id="coll">${Object.entries(SCHEMA).map(([k,v])=>`<option value="${k}" ${k===cpColl?"selected":""}>${v.label}</option>`).join("")}</select></div>`;
+    if(sc.special === "lines") return h + fieldHTML(cpColl, "lines", "سطر لكل عمود", DATA[cpColl]);
+    const arr = DATA[cpColl] || [];
+    h += `<p class="hint" style="color:var(--muted);font-size:.85rem;margin-bottom:10px"><span class="num">${arr.length}</span> عنصر. اضغط على عنصر لتعديله.</p>`;
+    h += arr.map((it,i)=>`<details class="item" ${i===openItem?"open":""} data-item="${i}"><summary><span class="num" style="color:var(--gold)">${i+1}</span><span class="t">${esc(it[sc.title]||"(بدون عنوان)")}</span>
+      <button class="mini" type="button" data-mv="${i}:-1" aria-label="أعلى">↑</button><button class="mini" type="button" data-mv="${i}:1" aria-label="أسفل">↓</button><button class="mini danger" type="button" data-del="${i}">حذف</button></summary>
+      <div class="ib">${sc.fields.map(([k,t,l,o])=>fieldHTML(`${cpColl}.${i}.${k}`, t, l, it[k], o)).join("")}</div></details>`).join("");
+    return h + `<button class="btn btn-line" type="button" id="add-item" style="width:100%;justify-content:center;margin-top:6px">+ إضافة عنصر جديد</button>`; },
+  backup: () => `<div class="helpbox">التعديلات تُحفظ في متصفحك. لاعتمادها في نسخة الموقع المنشورة لكل الزوار: انسخ ملف البيانات وضعه مكان <code dir="ltr">window.DEFAULT_DATA</code> في ملف الموقع، أو أرسله لي لأدمجه.</div>
+    <h3 style="font-size:1.05rem;margin-bottom:8px">تصدير البيانات</h3>
+    <div class="fld"><textarea id="exp" readonly dir="ltr" style="min-height:160px;font-family:ui-monospace,monospace;font-size:.78rem">${esc(JSON.stringify(DATA,null,2))}</textarea></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px"><button class="btn btn-main" type="button" id="copy-exp">نسخ البيانات</button><button class="btn btn-line" type="button" id="dl-exp">تنزيل ملف JSON</button></div>
+    <h3 style="font-size:1.05rem;margin-bottom:8px">استيراد البيانات</h3>
+    <div class="fld"><textarea id="imp" dir="ltr" placeholder="الصق هنا ملف JSON المصدَّر…" style="min-height:110px;font-family:ui-monospace,monospace;font-size:.78rem"></textarea><input type="file" id="imp-file" accept=".json,application/json"><div class="err" id="imp-err"></div></div>
+    <button class="btn btn-main" type="button" id="do-imp" style="margin-bottom:26px">استيراد واستبدال المحتوى</button>
+    <h3 style="font-size:1.05rem;margin-bottom:8px">إعادة الضبط</h3>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="mini danger" type="button" id="reset-all" style="padding:8px 14px">استعادة المحتوى الأصلي</button><button class="mini" type="button" id="reset-prog" style="padding:8px 14px">مسح تقدم الدروس على هذا الجهاز</button></div>`,
+  security: () => `<div class="helpbox">الرمز السري يحمي لوحة التحكم على هذا المتصفح. هو قفل للواجهة وليس حماية خادم؛ للحماية الكاملة استضف الموقع خلف تسجيل دخول.</div>
+    <form id="pin-form">${fieldHTML("_cur","password","الرمز الحالي","")}${fieldHTML("_new","password","الرمز الجديد (4 أرقام أو أكثر)","")}${fieldHTML("_new2","password","تأكيد الرمز الجديد","")}
+    <div class="err" id="pinf-err"></div><button class="btn btn-main" type="submit">تغيير الرمز</button></form>`
+};
+
+/* panel events */
+$("#cp").addEventListener("click", e => {
+  const t = e.target.closest("button,[data-cptab]"); if(!t) return;
+  if(t.dataset.cptab){ cpTab = t.dataset.cptab; drawCP(); return; }
+  if(t.dataset.secmv){ e.preventDefault(); const [i,d] = t.dataset.secmv.split(":").map(Number); const j = i+d; if(j<0||j>=DATA.sections.length) return; [DATA.sections[i],DATA.sections[j]]=[DATA.sections[j],DATA.sections[i]]; dirty=true; drawCP(); return; }
+  if(t.dataset.mv){ e.preventDefault(); const [i,d] = t.dataset.mv.split(":").map(Number); const a = DATA[cpColl], j = i+d; if(j<0||j>=a.length) return; [a[i],a[j]]=[a[j],a[i]]; openItem=j; dirty=true; drawCP(); return; }
+  if(t.dataset.del){ e.preventDefault(); if(!t.classList.contains("arm")){ t.classList.add("arm"); t.textContent="تأكيد الحذف"; setTimeout(()=>{ if(t.isConnected){ t.classList.remove("arm"); t.textContent="حذف"; } }, 3000); return; }
+    DATA[cpColl].splice(+t.dataset.del,1); openItem=-1; dirty=true; drawCP(); toast("حُذف العنصر — اضغط حفظ لاعتماده"); return; }
+  if(t.id === "add-item"){ const o = {}; SCHEMA[cpColl].fields.forEach(([k,ty,l,op])=>o[k] = (ty==="lines"||ty==="pairs") ? [] : ty==="select" ? op[0] : ty==="number" ? "1" : ""); DATA[cpColl].push(o); openItem = DATA[cpColl].length-1; dirty=true; drawCP(); setTimeout(()=>{ const el = $(`[data-item="${openItem}"]`); el && el.scrollIntoView({block:"center"}); }, 30); return; }
+  if(t.id === "reset-colors"){ ["band","gold","green"].forEach(k=>DATA.theme[k]=DEF_T[k]); dirty=true; drawCP(); applyTheme(); return; }
+  if(t.id === "copy-exp"){ const ta = $("#exp"); const txt = ta.value;
+    (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(()=>toast("تم نسخ البيانات")).catch(()=>{ ta.focus(); ta.select(); toast("حدّد النص وانسخه يدويا"); }); return; }
+  if(t.id === "dl-exp"){ try{ const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify(DATA,null,2)],{type:"application/json"})); a.download = "sharia-site-data.json"; document.body.appendChild(a); a.click(); a.remove(); toast("إن لم يبدأ التنزيل فاستخدم زر النسخ"); }catch(err){ toast("التنزيل غير متاح هنا، استخدم زر النسخ"); } return; }
+  if(t.id === "do-imp"){ try{ const o = JSON.parse($("#imp").value); if(!o || !o.site || !Array.isArray(o.chapters)) throw new Error("x"); DATA = o; const fixed = loadDataFrom(o); DATA = fixed; saveAll(); toast("تم استيراد المحتوى"); cpTab="general"; drawCP(); }catch(err){ $("#imp-err").textContent = "الملف غير صالح: تأكد أنه ملف JSON مصدَّر من هذه اللوحة."; } return; }
+  if(t.id === "reset-all"){ if(!t.classList.contains("arm")){ t.classList.add("arm"); t.textContent="اضغط مجددا للتأكيد"; setTimeout(()=>{ if(t.isConnected){ t.classList.remove("arm"); t.textContent="استعادة المحتوى الأصلي"; } },3000); return; }
+    store.del(K.data); DATA = loadData(); dirty=false; renderSite(); drawCP(); toast("تمت استعادة المحتوى الأصلي"); return; }
+  if(t.id === "reset-prog"){ progress.clear(); store.del(K.prog); renderSite(); toast("تم مسح التقدم"); return; }
+});
+function loadDataFrom(o){ const def = clone(window.DEFAULT_DATA); for(const k in def){ if(!(k in o)) o[k] = def[k]; } for(const k in def.theme){ if(!(k in o.theme)) o.theme[k]=def.theme[k]; } for(const k in def.site){ if(!(k in o.site)) o.site[k]=def.site[k]; } return o; }
+
+$("#cp").addEventListener("input", e => {
+  const el = e.target;
+  if(el.id === "coll"){ return; }
+  if(el.id === "imp" || el.id === "exp" || el.dataset.path === undefined || el.dataset.path.startsWith("_")) return;
+  let v = el.value;
+  if(el.dataset.type === "lines") v = v.split("\n").map(s=>s.trim()).filter(Boolean);
+  if(el.dataset.type === "pairs") v = v.split("\n").map(s=>s.trim()).filter(Boolean).map(s=>{ const [a,b]=split(s); return {t:a,b:b}; });
+  if(el.dataset.path === cpColl && SCHEMA[cpColl].special) { DATA[cpColl] = v; dirty = true; return; }
+  setPath(el.dataset.path, v); dirty = true;
+  if(el.type === "color"){ el.nextElementSibling.textContent = el.value; applyTheme(); }
+  if(el.id === "f-scale"){ $("#scale-v").textContent = Math.round(v*100)+"%"; applyTheme(); }
+  const sum = el.closest(".item"); if(sum){ const sc = SCHEMA[cpColl]; if(el.dataset.path.endsWith("."+sc.title)) sum.querySelector(".t").textContent = v || "(بدون عنوان)"; }
+});
+$("#cp").addEventListener("change", e => {
+  const el = e.target;
+  if(el.id === "coll"){ cpColl = el.value; openItem = -1; drawCP(); return; }
+  if(el.dataset.secvis !== undefined){ DATA.sections[+el.dataset.secvis].visible = el.checked; dirty = true; return; }
+  if(el.id === "f-font" || el.id === "f-dt"){ applyTheme(); }
+  if(el.id === "imp-file" && el.files[0]){ const r = new FileReader(); r.onload = () => { $("#imp").value = r.result; }; r.readAsText(el.files[0]); }
+});
+$("#cp").addEventListener("toggle", e => { const d = e.target; if(d.matches && d.matches(".item") && d.open) openItem = +d.dataset.item; }, true);
+$("#cp").addEventListener("submit", e => {
+  if(e.target.id !== "pin-form") return; e.preventDefault();
+  const cur = $("#f--cur").value, n1 = $("#f--new").value, n2 = $("#f--new2").value, err = $("#pinf-err");
+  if(cur !== getPin()) return err.textContent = "الرمز الحالي غير صحيح.";
+  if(n1.length < 4) return err.textContent = "اختر رمزا من 4 خانات على الأقل.";
+  if(n1 !== n2) return err.textContent = "الرمزان الجديدان غير متطابقين.";
+  store.set(K.pin, n1); err.textContent = ""; e.target.reset(); toast("تم تغيير الرمز السري");
+});
+function saveAll(){ const ok = store.set(K.data, JSON.stringify(DATA)); dirty = false; renderSite(); return ok; }
+$("#cp-save").addEventListener("click", () => { const ok = saveAll(); toast(ok ? "تم الحفظ والنشر على هذا المتصفح" : "طُبّقت التغييرات، لكن المتصفح يمنع الحفظ الدائم"); });
+$("#cp-revert").addEventListener("click", () => { DATA = loadData(); dirty = false; renderSite(); drawCP(); toast("أُلغيت التغييرات غير المحفوظة"); });
+
+/* boot */
+renderSite();
+if(window.matchMedia){ try{ matchMedia("(prefers-color-scheme: dark)").addEventListener("change", syncThemeBtn); }catch(e){} }
+})();
+</script>
+</body></html>
